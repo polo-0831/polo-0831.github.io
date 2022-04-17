@@ -5,8 +5,8 @@
 <meta property="og:site_name" content="PoLo Welcome!">
 <meta property="og:description" content="说点什么       ​        为什么要自己写一篇环境配置的博客呢？前些日子系统坏了需要重装系统，再次配置环境的时候又要在网上搜索参差不齐的系统安装博客，很麻烦。 ​        没错，怕麻烦，所以自己总结。 ​        本片文章没有赘述如何安装anaconda和python，记录了安装GPU相关工具包时的一些思考和具体安装方法。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83%5Cimage-20220416161928461.png">
-<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog/source_posts/windows-anaconda配置pytorch-gpu环境/image-20220416162025389.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416161928461.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83%5Cimage-20220416162025389.png">
 <meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog/source_posts/windows-anaconda配置pytorch-gpu环境/image-20220416162105616.png">
 <meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog/source_posts/windows-anaconda配置pytorch-gpu环境/image-20220416162316611.png">
 <meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog/source_posts/windows-anaconda配置pytorch-gpu环境/image-20220416162621413.png">
@@ -26,10 +26,10 @@
 <meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog/source_posts/windows-anaconda配置pytorch-gpu环境/image-20220417211046410.png">
 <meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog/source_posts/windows-anaconda配置pytorch-gpu环境/image-20220417211319914.png">
 <meta property="article:published_time" content="2022-04-16T08:01:47.000Z">
-<meta property="article:modified_time" content="2022-04-17T13:37:20.809Z">
+<meta property="article:modified_time" content="2022-04-17T13:39:45.783Z">
 <meta property="article:author" content="PoLo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83%5Cimage-20220416161928461.png"><title>【环境配置】windows+anaconda配置pytorch+gpu环境 | PoLo Welcome!</title><link ref="canonical" href="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+<meta name="twitter:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416161928461.png"><title>【环境配置】windows+anaconda配置pytorch+gpu环境 | PoLo Welcome!</title><link ref="canonical" href="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
 var CONFIG = {
   root: '/',
   algolia: undefined,
@@ -77,9 +77,9 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
       <p>​    <strong>1、查看你的电脑显卡支持的CUDA版本</strong></p>
 <p>​        方法一：通过N卡控制面板</p>
 <p>​        ①右键右下角nvidia面板进入N卡控制面板</p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83%5Cimage-20220416161928461.png" alt="image-20220416161928461"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416161928461.png" alt="image-20220416161928461"></p>
 <p>​        ②点击左下角的系统信息</p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220416162025389.png" alt="image-20220416162025389"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83%5Cimage-20220416162025389.png" alt="image-20220416162025389"></p>
 <p>​        ③选择“组件”，可以看到自己的CUDA版本。博主RTX2060的显卡搭配的CUDA版本是11.2</p>
 <p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220416162105616.png" alt="image-20220416162105616"></p>
 <p>​        方法二：cmd命令行输入 nvidia-smi</p>
