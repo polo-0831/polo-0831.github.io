@@ -56,26 +56,26 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
 <p>​        ①右键右下角nvidia面板进入N卡控制面板</p>
 <p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416161928461.png" alt="image-20220416161928461"></p>
 <p>​        ②点击左下角的系统信息</p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83%5Cimage-20220416162025389.png" alt="image-20220416162025389"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162025389.png" alt="image-20220416162025389"></p>
 <p>​        ③选择“组件”，可以看到自己的CUDA版本。博主RTX2060的显卡搭配的CUDA版本是11.2</p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220416162105616.png" alt="image-20220416162105616"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162105616.png" alt="image-20220416162105616"></p>
 <p>​        方法二：cmd命令行输入 nvidia-smi</p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220416162316611.png" alt="image-20220416162316611"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162316611.png" alt="image-20220416162316611"></p>
 <p>​    <strong>2、下载CUDA</strong></p>
 <p>​        ①进入[CUDA官网](<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA Toolkit Archive | NVIDIA Developer</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>)查看自己的版本下载安装软件，并且安装（无需修改路径，环境的东西就塞在C盘）</p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220416162621413.png" alt="image-20220416162621413"></p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220416162737991.png" alt="image-20220416162737991"></p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220416162932165.png" alt="image-20220416162932165"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162621413.png" alt="image-20220416162621413"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162737991.png" alt="image-20220416162737991"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162932165.png" alt="image-20220416162932165"></p>
 <p>选择自定义，下一步</p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220416163209499.png" alt="image-20220416163209499"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416163209499.png" alt="image-20220416163209499"></p>
 <p>如下图，下一步</p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220416163222305.png" alt="image-20220416163222305"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416163222305.png" alt="image-20220416163222305"></p>
 <p>查看箭头所指这一项，如果新版本比当前版本更旧，则取消勾选，反之勾上，下一步</p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220416163310459.png" alt="image-20220416163310459"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416163310459.png" alt="image-20220416163310459"></p>
 <p>不修改位置，就放在C盘，下一步</p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220416163403965.png" alt="image-20220416163403965"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416163403965.png" alt="image-20220416163403965"></p>
 <p>安装结束之后在CMD中输入nvcc -V，输出如下信息则为成功：</p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220416163648581.png" alt="image-20220416163648581"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416163648581.png" alt="image-20220416163648581"></p>
 
         <h2 id="Cudnn">
           <a href="#Cudnn" class="heading-link"><i class="fas fa-link"></i></a><a href="#Cudnn" class="headerlink" title="Cudnn"></a>Cudnn</h2>
@@ -88,21 +88,21 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
         <h3 id="下载安装正确版本的Cudnn">
           <a href="#下载安装正确版本的Cudnn" class="heading-link"><i class="fas fa-link"></i></a><a href="#下载安装正确版本的Cudnn" class="headerlink" title="下载安装正确版本的Cudnn"></a>下载安装正确版本的Cudnn</h3>
       <p>​        进入<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://developer.nvidia.com/rdp/cudnn-archive#a-collapse51b">Cudnn官方下载链接</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>，我这里选择匹配我CUDA11.2版本的Cudnn</p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220416164205958.png" alt="image-20220416164205958"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416164205958.png" alt="image-20220416164205958"></p>
 <p>​        解压cudnn-11.2-windows-x64-v8.1.1.33.zip压缩包，将压缩包内的三个文件夹复制，粘贴到C:\Program Files\NVIDIA GPU Toolkit\CUDA\v11.2 中，出现是否替换的提示选择替换即可。</p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220417203906152.png" alt="image-20220417203906152"></p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220417203941786.png" alt="image-20220417203941786"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417203906152.png" alt="image-20220417203906152"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417203941786.png" alt="image-20220417203941786"></p>
 <p>​        随后打开系统环境变量，编辑Path变量，将如下路径添加到环境变量中</p>
 <p>​        C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\libnvvp</p>
 <p>​        C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\bin</p>
 <p>​        C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\include</p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220417204304640.png" alt="image-20220417204304640"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417204304640.png" alt="image-20220417204304640"></p>
 <p>​        重启生效，完成安装。</p>
 
         <h1 id="安装Pytorch">
           <a href="#安装Pytorch" class="heading-link"><i class="fas fa-link"></i></a><a href="#安装Pytorch" class="headerlink" title="安装Pytorch"></a>安装Pytorch</h1>
       <p>​        进入pytorch[官方网站](<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://pytorch.org/get-started/locally/">Start Locally | PyTorch</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>)，选择比自己CUDA版本低的安装，这里假设选择11.3，复制下面生成的conda命令。</p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220417204557907.png" alt="image-20220417204557907"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417204557907.png" alt="image-20220417204557907"></p>
 <p>​        打开anaconda prompt命令行窗口，如下所示，路径前括号内代表当前所处的anaconda建立的环境，默认是base。初次登陆conda的话先换源，否则下载的库会很慢。</p>
 <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 清华源</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --set show_channel_urls yes   # 设置搜索时显示通道地址</span><br><span class="line"></span><br><span class="line"># or 中科大源</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></div></figure>
 
@@ -115,7 +115,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
 <p>​        将刚才在官网复制的conda命令粘贴运行即可，输入y之后开始下载。没换源的话下载很慢。下载完毕后，输入以下指令即可查看已安装的包</p>
 <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></div></figure>
 
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220417210241098.png" alt="image-20220417210241098"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417210241098.png" alt="image-20220417210241098"></p>
 <p>​        完成配置，在pycharm上就可以使用已经配置好的conda环境。</p>
 
         <h2 id="conda指令集合">
@@ -128,9 +128,9 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></he
       <p>​        博主是11.2CUDA版本，但是不想装适配10.2CUDA的pytorch，于是查询<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://download.pytorch.org/whl/torch_stable.html">离线安装网站</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>找到了11.1CUDA版本的pytorch,下载好whl文件后在anaconda prompt内cd到对应安装路径安装即可。</p>
 <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install 文件名</span><br></pre></td></tr></table></div></figure>
 
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220417211046410.png" alt="image-20220417211046410"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417211046410.png" alt="image-20220417211046410"></p>
 <p>​        从pytorch[官方](<span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://github.com/pytorch/vision#installation">pytorch/vision: Datasets, Transforms and Models specific to Computer Vision (github.com)</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>)给出的适配版本中可以看出，torch版本和torchvision之间有要求，根据自己要求选择即可。</p>
-<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/Blog\source_posts\windows-anaconda配置pytorch-gpu环境\image-20220417211319914.png" alt="image-20220417211319914"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417211319914.png" alt="image-20220417211319914"></p>
 </div></div></article><article class="postlist-item post"><header class="post-header"><h1 class="post-title"><a class="post-title__link" href="/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/">记录Windows更新后崩溃</a></h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-02-11</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-04-16</span></span></div></header><div class="post-body"><div class="post-excerpt">
         <h2 id="前言">
           <a href="#前言" class="heading-link"><i class="fas fa-link"></i></a><a href="#前言" class="headerlink" title="前言"></a>前言</h2>
