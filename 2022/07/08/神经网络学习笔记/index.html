@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/images/icons/favicon_polo-16x16.png?v=2.6.2" type="image/png" sizes="16x16"><link rel="icon" href="/images/icons/favicon_polo-32x32.png?v=2.6.2" type="image/png" sizes="32x32"><link rel="apple-touch-icon" href="/images/icons/apple-touch-icon-180x180_polo.png?v=2.6.2" sizes="180x180"><link rel="mask-icon" href="/%5Bobject%20Object%5D?v=2.6.2" color="#54bcff"><meta name="google-site-verification" content="6eG-hPdNNz2SG3XPKdMB0uqKQFPlmcGdEF22DetYT-k"><meta name="msvalidate.01" content="80AB1134C77D311BFEB96C651B502B15"><meta name="baidu-site-verification" content="code-26TjukOFe2"><meta name="description" content="一、网络基础构成       以最基础的CNN网络架构为例：包含卷积层、池化层和全连接层  待看的神经网络各个部分的理解 作用 卷积层：用N个卷积核提取N维特征，并且缩小图片的大小，使得展平后运算量不大 池化层（下采样层）：用于降维减少神经网络的参数数量、扩大感受野、实现不变性 全连接层：起分类器的作用，且一定程度保留模型复杂度">
+<meta property="og:type" content="article">
+<meta property="og:title" content="神经网络学习笔记">
+<meta property="og:url" content="https://polo-0831.github.io/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Po1o&#39;s Mind Palace">
+<meta property="og:description" content="一、网络基础构成       以最基础的CNN网络架构为例：包含卷积层、池化层和全连接层  待看的神经网络各个部分的理解 作用 卷积层：用N个卷积核提取N维特征，并且缩小图片的大小，使得展平后运算量不大 池化层（下采样层）：用于降维减少神经网络的参数数量、扩大感受野、实现不变性 全连接层：起分类器的作用，且一定程度保留模型复杂度">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://polo-0831.github.io/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220708124629305.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220708131910144.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220708132405382.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220708132803269.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220708124357589.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220708124516778.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CF916ED7D561D11DFB1616482C749667-16572624575102.jpg">
+<meta property="og:image" content="https://polo-0831.github.io/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/A6FE9710B65DCC240A451DC21BE22CC4.jpg">
+<meta property="og:image" content="https://polo-0831.github.io/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220708143406994.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220708143303814.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/66B3671DAABD48F249B413A078658CC3.jpg">
+<meta property="article:published_time" content="2022-07-08T12:40:35.000Z">
+<meta property="article:modified_time" content="2022-07-08T12:41:26.726Z">
+<meta property="article:author" content="PoLo">
+<meta property="article:tag" content="神经网络">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://polo-0831.github.io/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220708124629305.png"><title>神经网络学习笔记 | Po1o's Mind Palace</title><link ref="canonical" href="https://polo-0831.github.io/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=2.6.2"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  assistSearch: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":true},
+  postWidget: {"endText":true},
+  nightMode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"default","highlight":"light","wordWrap":false},
+  reward: false,
+  fancybox: false,
+  zoomImage: {"gapAside":"20px"},
+  galleryWaterfall: undefined,
+  lazyload: false,
+  pjax: undefined,
+  externalLink: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copyButton":"复制","copySuccess":"复制成功","copyError":"复制失败"},
+  sourcePath: {"js":"js","css":"css","images":"images"},
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 5.4.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-menubtn"><i class="fas fa-bars"></i></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/"><span class="header-nav-menu-item__icon"><i class="fas fa-home"></i></span><span class="header-nav-menu-item__text">首页</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/archives/"><span class="header-nav-menu-item__icon"><i class="fas fa-folder-open"></i></span><span class="header-nav-menu-item__text">归档</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/categories/"><span class="header-nav-menu-item__icon"><i class="fas fa-layer-group"></i></span><span class="header-nav-menu-item__text">分类</span></a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__link" href="/tags/"><span class="header-nav-menu-item__icon"><i class="fas fa-tags"></i></span><span class="header-nav-menu-item__text">标签</span></a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-banner"><div class="header-banner-info"><div class="header-banner-info__title">Po1o's Mind Palace</div><div class="header-banner-info__subtitle">日月升落，总有黎明 --杨绛</div></div><div class="header-banner-arrow"><div class="header-banner-arrow__icon"><i class="fas fa-angle-down"></i></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><!-- Just used to judge whether it is an article page--><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-title">神经网络学习笔记</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2022-07-08</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2022-07-08</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body">
+        <h1 id="一、网络基础构成">
+          <a href="#一、网络基础构成" class="heading-link"><i class="fas fa-link"></i></a><a href="#一、网络基础构成" class="headerlink" title="一、网络基础构成"></a>一、网络基础构成</h1>
+      <p>以最基础的CNN网络架构为例：包含<strong>卷积层、池化层和全连接层</strong></p>
+<p><img src="/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220708124629305.png" alt="image-20220708124629305"></p>
+<p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27642620">待看的神经网络各个部分的理解</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><strong>作用</strong></p>
+<p>卷积层：用N个卷积核提取N维特征，并且缩小图片的大小，使得展平后运算量不大</p>
+<p>池化层（下采样层）：用于降维减少神经网络的参数数量、扩大感受野、实现不变性</p>
+<p>全连接层：起分类器的作用，且<strong>一定程度保留模型复杂度</strong></p>
+
+        <h2 id="1-卷积层">
+          <a href="#1-卷积层" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-卷积层" class="headerlink" title="1.卷积层"></a>1.卷积层</h2>
+      <p>卷积特性：<strong>具有局部感知机制、权值共享</strong></p>
+<p><img src="/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220708131910144.png" alt="image-20220708131910144"></p>
+<p><strong>⚠输入特征矩阵深度＝卷积核深度</strong></p>
+<p>⚠<strong>输出特征矩阵个数（map个数）＝卷积核个数   （即可以提取各种各样的特征map）</strong></p>
+<p><img src="/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220708132405382.png" alt="image-20220708132405382"></p>
+<p>W：输入图片大小  </p>
+<p>F：卷积核(filter)大小</p>
+<p>P：边缘扩充(padding)大小，一般左右和上下同时扩充，所以是2P</p>
+<p>S：步长Stride</p>
+
+        <h2 id="2-池化层">
+          <a href="#2-池化层" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-池化层" class="headerlink" title="2.池化层"></a>2.池化层</h2>
+      <p>最大池化和平均池化</p>
+<p><img src="/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220708132803269.png" alt="image-20220708132803269"></p>
+<p>作用：对特征图进行稀疏处理，减少数据运算量。有待补充</p>
+
+        <h2 id="3-全连接层">
+          <a href="#3-全连接层" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-全连接层" class="headerlink" title="3.全连接层"></a>3.全连接层</h2>
+      <p><img src="/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220708124357589.png" alt="image-20220708124357589"></p>
+<p>参数数量：一个神经元就有一套参数，池化和卷积就是为了减少参数数量和提取特征而出现的</p>
+<p><img src="/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220708124516778.png" alt="image-20220708124516778"></p>
+
+        <h3 id="对全连接层FC的理解">
+          <a href="#对全连接层FC的理解" class="heading-link"><i class="fas fa-link"></i></a><a href="#对全连接层FC的理解" class="headerlink" title="对全连接层FC的理解"></a>对全连接层FC的理解</h3>
+      <p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://blog.csdn.net/bl128ve900/article/details/95316038">全连接层的作用</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p>作用一：<strong>把分布式特征representation映射到样本标记空间。</strong>人话：把卷积池化展平后的一堆数字进行全连接层里面的运算从而达到分类，就是分类。</p>
+<p>作用二：<strong>用多层隐含层去拟合数据分布（非线性）。</strong>网上一种说法是类比于泰勒公式，每一层隐含层是神经元和激活函数组成，用多层非线性的函数（泰勒公式里的子项）来拟合更贴近于生活的非线性数据分布。这可能就是为什么需要用这种权重和偏置值的公式的原因。</p>
+
+        <h3 id="对激活函数的理解">
+          <a href="#对激活函数的理解" class="heading-link"><i class="fas fa-link"></i></a><a href="#对激活函数的理解" class="headerlink" title="对激活函数的理解"></a>对激活函数的理解</h3>
+      <p>增加模型的非线性特性</p>
+<p>有待补充</p>
+
+        <h1 id="二、反向传播算法BP">
+          <a href="#二、反向传播算法BP" class="heading-link"><i class="fas fa-link"></i></a><a href="#二、反向传播算法BP" class="headerlink" title="二、反向传播算法BP"></a>二、反向传播算法BP</h1>
+      
+        <h2 id="1-误差的计算-Loss值，也称误差梯度值">
+          <a href="#1-误差的计算-Loss值，也称误差梯度值" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-误差的计算-Loss值，也称误差梯度值" class="headerlink" title="1.误差的计算(Loss值，也称误差梯度值)"></a>1.误差的计算(Loss值，也称误差梯度值)</h2>
+      <p>全连接神经网络如下所示，有一个隐含层，正向传播的出Loss需要经过三步：</p>
+<ul>
+<li><p>多层公式计算得出输出层<strong>y神经元的值</strong></p>
+</li>
+<li><p>输出层用softmax进行概率归一化得到<strong>标签实际概率</strong></p>
+</li>
+<li><p>将标签实际概率和标签理论概率用<strong>交叉熵函数</strong>得出Loss</p>
+</li>
+</ul>
+<p><img src="/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/CF916ED7D561D11DFB1616482C749667-16572624575102.jpg" alt="img"></p>
+
+        <h2 id="2-误差的反向传播-采用误差梯度">
+          <a href="#2-误差的反向传播-采用误差梯度" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-误差的反向传播-采用误差梯度" class="headerlink" title="2.误差的反向传播(采用误差梯度)"></a>2.误差的反向传播(采用误差梯度)</h2>
+      <p>误差的反向传播使用的是梯度下降法，误差梯度的本质是一个向量，而不是一个具体的标量值。计算方法如下图所示，采用了链式法则。</p>
+<p><img src="/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/A6FE9710B65DCC240A451DC21BE22CC4.jpg" alt="img"></p>
+
+        <h2 id="3-权重的更新-梯度下降法、优化器">
+          <a href="#3-权重的更新-梯度下降法、优化器" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-权重的更新-梯度下降法、优化器" class="headerlink" title="3.权重的更新(梯度下降法、优化器)"></a>3.权重的更新(梯度下降法、优化器)</h2>
+      <p><span class="exturl"><a class="exturl__link" target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ux411j7ri?spm_id_from=333.337.search-card.all.click&vd_source=2625b5eda84e0a3a4b91e010796be1d4">【官方双语】深度学习之梯度下降法 Part 2 ver 0.9 beta_哔哩哔哩_bilibili</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<p><img src="/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220708143406994.png" alt="image-20220708143406994"></p>
+<p>将误差梯度放入<strong>优化器</strong>中进行权重的调整，一步一步将损失梯度调整到最小，此时权重最适合目标网络。</p>
+<p>目前普遍的优化器有SGD、Adam等，其中SGD的函数表示：</p>
+<p><img src="/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220708143303814.png" alt="image-20220708143303814"></p>
+
+        <h3 id="批训练导致梯度下降到局部最优的理解">
+          <a href="#批训练导致梯度下降到局部最优的理解" class="heading-link"><i class="fas fa-link"></i></a><a href="#批训练导致梯度下降到局部最优的理解" class="headerlink" title="批训练导致梯度下降到局部最优的理解"></a>批训练导致梯度下降到局部最优的理解</h3>
+      <p>如下图为一个权重的梯度空间，如果导入全部图片的训练数据，那么每一次梯度调整都是奔着最理想的情况去的，但是运算能力没有这么强，于是有了<strong>批训练</strong>，梯度下降的每一步可能走的更曲折，最终可能达到最低或者局部最低</p>
+<p><img src="/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/66B3671DAABD48F249B413A078658CC3.jpg" alt="img"></p>
+</div><footer class="post-footer"><div class="post-ending ending"><div class="ending__text">------ 本文结束，感谢您的阅读 ------</div></div><div class="post-copyright copyright"><div class="copyright-author"><span class="copyright-author__name">本文作者: </span><span class="copyright-author__value"><a href="https://polo-0831.github.io">PoLo</a></span></div><div class="copyright-link"><span class="copyright-link__name">本文链接: </span><span class="copyright-link__value"><a href="https://polo-0831.github.io/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">https://polo-0831.github.io/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a></span></div><div class="copyright-notice"><span class="copyright-notice__name">版权声明: </span><span class="copyright-notice__value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><span class="post-tags-item__icon"><i class="fas fa-tag"></i></span><a class="post-tags-item__link" href="https://polo-0831.github.io/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">神经网络</a></span></div><nav class="post-paginator paginator"><div class="paginator-next"><a class="paginator-next__link" href="/2022/07/06/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F-%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E6%80%9D%E8%80%83/"><span class="paginator-prev__text">信号与系统--傅里叶变换的思考</span><span class="paginator-next__icon"><i class="fas fa-angle-right"></i></span></a></div></nav></footer></div></div></div><div class="sidebar-wrap" id="sidebar-wrap"><aside class="sidebar" id="sidebar"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%BD%91%E7%BB%9C%E5%9F%BA%E7%A1%80%E6%9E%84%E6%88%90"><span class="toc-number">1.</span> <span class="toc-text">
+          一、网络基础构成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%8D%B7%E7%A7%AF%E5%B1%82"><span class="toc-number">1.1.</span> <span class="toc-text">
+          1.卷积层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%B1%A0%E5%8C%96%E5%B1%82"><span class="toc-number">1.2.</span> <span class="toc-text">
+          2.池化层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%B1%82"><span class="toc-number">1.3.</span> <span class="toc-text">
+          3.全连接层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%85%A8%E8%BF%9E%E6%8E%A5%E5%B1%82FC%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">1.3.1.</span> <span class="toc-text">
+          对全连接层FC的理解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">1.3.2.</span> <span class="toc-text">
+          对激活函数的理解</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95BP"><span class="toc-number">2.</span> <span class="toc-text">
+          二、反向传播算法BP</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AF%AF%E5%B7%AE%E7%9A%84%E8%AE%A1%E7%AE%97-Loss%E5%80%BC%EF%BC%8C%E4%B9%9F%E7%A7%B0%E8%AF%AF%E5%B7%AE%E6%A2%AF%E5%BA%A6%E5%80%BC"><span class="toc-number">2.1.</span> <span class="toc-text">
+          1.误差的计算(Loss值，也称误差梯度值)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%AF%AF%E5%B7%AE%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD-%E9%87%87%E7%94%A8%E8%AF%AF%E5%B7%AE%E6%A2%AF%E5%BA%A6"><span class="toc-number">2.2.</span> <span class="toc-text">
+          2.误差的反向传播(采用误差梯度)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%9D%83%E9%87%8D%E7%9A%84%E6%9B%B4%E6%96%B0-%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E6%B3%95%E3%80%81%E4%BC%98%E5%8C%96%E5%99%A8"><span class="toc-number">2.3.</span> <span class="toc-text">
+          3.权重的更新(梯度下降法、优化器)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%B9%E8%AE%AD%E7%BB%83%E5%AF%BC%E8%87%B4%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D%E5%88%B0%E5%B1%80%E9%83%A8%E6%9C%80%E4%BC%98%E7%9A%84%E7%90%86%E8%A7%A3"><span class="toc-number">2.3.1.</span> <span class="toc-text">
+          批训练导致梯度下降到局部最优的理解</span></a></li></ol></li></ol></li></ol></section><!-- ov = overview--><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/images/icons/safari-pinned-tab_polo.svg" alt="avatar"></div><p class="sidebar-ov-author__text">猛兽总是独行，牛羊才成群结队</p></div><div class="sidebar-ov-social"><a class="sidebar-ov-social-item" href="https://github.com/polo-0831/" target="_blank" rel="noopener" data-popover="Github" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-github"></i></span></a><a class="sidebar-ov-social-item" href="https://www.youtube.com/channel/UCSy4ymfDX5srRJKCs2RXcMA" target="_blank" rel="noopener" data-popover="Youtube" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-youtube"></i></span></a><a class="sidebar-ov-social-item" href="https://space.bilibili.com/151399898?spm_id_from=333.1007.0.0" target="_blank" rel="noopener" data-popover="social.bilibili" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-youtube"></i></span></a><a class="sidebar-ov-social-item" href="172312551" target="_blank" rel="noopener" data-popover="QQ" data-popover-pos="up"><span class="sidebar-ov-social-item__icon"><i class="fab fa-qq"></i></span></a></div><div class="sidebar-ov-state"><a class="sidebar-ov-state-item sidebar-ov-state-item--posts" href="/archives/"><div class="sidebar-ov-state-item__count">9</div><div class="sidebar-ov-state-item__name">归档</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--categories" href="/categories/"><div class="sidebar-ov-state-item__count">3</div><div class="sidebar-ov-state-item__name">分类</div></a><a class="sidebar-ov-state-item sidebar-ov-state-item--tags" href="/tags/"><div class="sidebar-ov-state-item__count">3</div><div class="sidebar-ov-state-item__name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享许可协议" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span class="sidebar-reading-info__text">你已阅读了 </span><span class="sidebar-reading-info__num">0</span><span class="sidebar-reading-info__perc">%</span></div><div class="sidebar-reading-line"></div></div></aside></div><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright © 2022</span><span class="footer__icon"><i class="fas fa-heart"></i></span><span>PoLo</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v5.4.0</span><span class="footer__devider">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v2.6.2</span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="loading-bar__progress"></div></div><div class="back2top" id="back2top"><span class="back2top__icon"><i class="fas fa-rocket"></i></span></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/npm/ribbon.js@latest/dist/ribbon.min.js" size="300" alpha="0.6" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1.0.1/dist/canvas-nest.min.js" color="255,20,147" opacity="0.6" count="99" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script><script src="/js/utils.js?v=2.6.2"></script><script src="/js/stun-boot.js?v=2.6.2"></script><script src="/js/scroll.js?v=2.6.2"></script><script src="/js/header.js?v=2.6.2"></script><script src="/js/sidebar.js?v=2.6.2"></script><script src="/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2d_models/assets/assets/z16.model.json"},"display":{"position":"right","width":200,"height":400,"hOffset":100,"vOffset":-40},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body></html>
