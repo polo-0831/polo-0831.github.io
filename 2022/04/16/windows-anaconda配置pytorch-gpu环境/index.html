@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon-180x180_polo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon_polo-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon_polo-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"polo-0831.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="说点什么​        为什么要自己写一篇环境配置的博客呢？前些日子系统坏了需要重装系统，再次配置环境的时候又要在网上搜索参差不齐的系统安装博客，很麻烦。 ​        没错，怕麻烦，所以自己总结。 ​        本片文章没有赘述如何安装anaconda和python，记录了安装GPU相关工具包时的一些思考和具体安装方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【环境配置】windows+anaconda配置pytorch+gpu环境">
+<meta property="og:url" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/index.html">
+<meta property="og:site_name" content="Po1o&#39;s Mind Palace">
+<meta property="og:description" content="说点什么​        为什么要自己写一篇环境配置的博客呢？前些日子系统坏了需要重装系统，再次配置环境的时候又要在网上搜索参差不齐的系统安装博客，很麻烦。 ​        没错，怕麻烦，所以自己总结。 ​        本片文章没有赘述如何安装anaconda和python，记录了安装GPU相关工具包时的一些思考和具体安装方法。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416161928461.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162025389.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162105616.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162316611.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162621413.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162737991.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162932165.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416163209499.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416163222305.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416163310459.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416163403965.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416163648581.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416164205958.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417203906152.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417203941786.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417204304640.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417204557907.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417210241098.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417211046410.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417211319914.png">
+<meta property="article:published_time" content="2022-04-16T08:01:47.000Z">
+<meta property="article:modified_time" content="2022-09-06T08:04:08.421Z">
+<meta property="article:author" content="PoLo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416161928461.png">
+
+<link rel="canonical" href="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>【环境配置】windows+anaconda配置pytorch+gpu环境 | Po1o's Mind Palace</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/clicklove.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Po1o's Mind Palace</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">日月升落，总有黎明 --杨绛</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/apple-touch-icon-180x180_polo.jpg">
+      <meta itemprop="name" content="PoLo">
+      <meta itemprop="description" content="日月升落，总有黎明 --杨绛">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Po1o's Mind Palace">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          【环境配置】windows+anaconda配置pytorch+gpu环境
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-04-16 16:01:47" itemprop="dateCreated datePublished" datetime="2022-04-16T16:01:47+08:00">2022-04-16</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:04:08" itemprop="dateModified" datetime="2022-09-06T16:04:08+08:00">2022-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">技术博客</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="说点什么"><a href="#说点什么" class="headerlink" title="说点什么"></a>说点什么</h1><p>​        为什么要自己写一篇环境配置的博客呢？前些日子系统坏了需要重装系统，再次配置环境的时候又要在网上搜索参差不齐的系统安装博客，很麻烦。</p>
+<p>​        没错，怕麻烦，所以自己总结。</p>
+<p>​        本片文章没有赘述如何安装anaconda和python，记录了安装GPU相关工具包时的一些思考和具体安装方法。</p>
+<span id="more"></span>
+
+<h1 id="安装Cuda和cudnn"><a href="#安装Cuda和cudnn" class="headerlink" title="安装Cuda和cudnn"></a>安装Cuda和cudnn</h1><h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><h3 id="什么是CUDA"><a href="#什么是CUDA" class="headerlink" title="什么是CUDA"></a>什么是CUDA</h3><p>​        2006年，NVIDIA公司发布了CUDA(Compute Unified Device Architecture)，是一种新的操作GPU计算的硬件和软件架构，是建立在NVIDIA的GPUs上的一个通用并行计算平台和编程模型，它提供了GPU编程的简易接口，基于CUDA编程可以构建基于GPU计算的应用程序，利用GPUs的并行计算引擎来更加高效地解决比较复杂的计算难题。它将GPU视作一个数据并行计算设备，而且无需把这些计算映射到图形API。操作系统的多任务机制可以同时管理CUDA访问GPU和图形程序的运行库，其计算特性支持利用CUDA直观地编写GPU核心程序。</p>
+<p>​        <strong>我自己的理解：CUDA类似于驱动，是用户对显卡编程的接口，安装了它就能使用你的GPU进行编程了。就像操控电机需要设计驱动模块来调整电平，否则单片机不能直接控制。</strong></p>
+<p>​        我们想增加神经网络的训练速度，当然想尽可能的提高自己电脑的算力，如果用CPU版本的话，你的显卡（GPU）就在发呆，摆烂怎么可以呢！所以我们安装CUDN，配合pytorch的GPU版本进行网络训练。</p>
+<h3 id="下载安装合适版本的CUDA"><a href="#下载安装合适版本的CUDA" class="headerlink" title="下载安装合适版本的CUDA"></a>下载安装合适版本的CUDA</h3><p>​    <strong>1、查看你的电脑显卡支持的CUDA版本</strong></p>
+<p>​        方法一：通过N卡控制面板</p>
+<p>​        ①右键右下角nvidia面板进入N卡控制面板</p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416161928461.png" alt="image-20220416161928461"></p>
+<p>​        ②点击左下角的系统信息</p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162025389.png" alt="image-20220416162025389"></p>
+<p>​        ③选择“组件”，可以看到自己的CUDA版本。博主RTX2060的显卡搭配的CUDA版本是11.2</p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162105616.png" alt="image-20220416162105616"></p>
+<p>​        方法二：cmd命令行输入 nvidia-smi</p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162316611.png" alt="image-20220416162316611"></p>
+<p>​    <strong>2、下载CUDA</strong></p>
+<p>​        ①进入[CUDA官网](<a target="_blank" rel="noopener" href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA Toolkit Archive | NVIDIA Developer</a>)查看自己的版本下载安装软件，并且安装（无需修改路径，环境的东西就塞在C盘）</p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162621413.png" alt="image-20220416162621413"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162737991.png" alt="image-20220416162737991"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162932165.png" alt="image-20220416162932165"></p>
+<p>选择自定义，下一步</p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416163209499.png" alt="image-20220416163209499"></p>
+<p>如下图，下一步</p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416163222305.png" alt="image-20220416163222305"></p>
+<p>查看箭头所指这一项，如果新版本比当前版本更旧，则取消勾选，反之勾上，下一步</p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416163310459.png" alt="image-20220416163310459"></p>
+<p>不修改位置，就放在C盘，下一步</p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416163403965.png" alt="image-20220416163403965"></p>
+<p>安装结束之后在CMD中输入nvcc -V，输出如下信息则为成功：</p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416163648581.png" alt="image-20220416163648581"></p>
+<h2 id="Cudnn"><a href="#Cudnn" class="headerlink" title="Cudnn"></a>Cudnn</h2><h3 id="什么是Cudnn"><a href="#什么是Cudnn" class="headerlink" title="什么是Cudnn"></a>什么是Cudnn</h3><p>​        CUDNN(CUDA Deep Neural Network library)：是NVIDIA打造的针对深度神经网络的加速库，是一个用于深层神经网络的GPU加速库。如果你要用GPU训练模型，cuDNN不是必须的，但是一般会采用这个加速库。</p>
+<p>​        我的理解：就是在CUDA“软件驱动”上增加更多工具，类似于python库内增加多几个函数供用户使用</p>
+<h3 id="下载安装正确版本的Cudnn"><a href="#下载安装正确版本的Cudnn" class="headerlink" title="下载安装正确版本的Cudnn"></a>下载安装正确版本的Cudnn</h3><p>​        进入<a target="_blank" rel="noopener" href="https://developer.nvidia.com/rdp/cudnn-archive#a-collapse51b">Cudnn官方下载链接</a>，我这里选择匹配我CUDA11.2版本的Cudnn</p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416164205958.png" alt="image-20220416164205958"></p>
+<p>​        解压cudnn-11.2-windows-x64-v8.1.1.33.zip压缩包，将压缩包内的三个文件夹复制，粘贴到C:\Program Files\NVIDIA GPU Toolkit\CUDA\v11.2 中，出现是否替换的提示选择替换即可。</p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417203906152.png" alt="image-20220417203906152"></p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417203941786.png" alt="image-20220417203941786"></p>
+<p>​        随后打开系统环境变量，编辑Path变量，将如下路径添加到环境变量中</p>
+<p>​        C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\libnvvp</p>
+<p>​        C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\bin</p>
+<p>​        C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\include</p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417204304640.png" alt="image-20220417204304640"></p>
+<p>​        重启生效，完成安装。</p>
+<h1 id="安装Pytorch"><a href="#安装Pytorch" class="headerlink" title="安装Pytorch"></a>安装Pytorch</h1><p>​        进入pytorch[官方网站](<a target="_blank" rel="noopener" href="https://pytorch.org/get-started/locally/">Start Locally | PyTorch</a>)，选择比自己CUDA版本低的安装，这里假设选择11.3，复制下面生成的conda命令。</p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417204557907.png" alt="image-20220417204557907"></p>
+<p>​        打开anaconda prompt命令行窗口，如下所示，路径前括号内代表当前所处的anaconda建立的环境，默认是base。初次登陆conda的话先换源，否则下载的库会很慢。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 清华源</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --set show_channel_urls yes   # 设置搜索时显示通道地址</span><br><span class="line"></span><br><span class="line"># or 中科大源</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
+
+<p>​        换源之后，新建conda环境，随后按y表示同意下载。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n 环境名 python=x.x</span><br><span class="line">例： conda create -n pytorch python=3.8</span><br></pre></td></tr></table></figure>
+
+<p>​        激活刚才新建的环境</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda activate 环境名</span><br><span class="line">例：conda activate pytorch</span><br></pre></td></tr></table></figure>
+
+<p>​        将刚才在官网复制的conda命令粘贴运行即可，输入y之后开始下载。没换源的话下载很慢。下载完毕后，输入以下指令即可查看已安装的包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417210241098.png" alt="image-20220417210241098"></p>
+<p>​        完成配置，在pycharm上就可以使用已经配置好的conda环境。</p>
+<h2 id="conda指令集合"><a href="#conda指令集合" class="headerlink" title="conda指令集合"></a>conda指令集合</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 环境指令</span><br><span class="line">列出所有环境	conda info --envs</span><br><span class="line">检查环境中python版本	python --version</span><br><span class="line">新建环境	conda create -n 环境名 python=3.7</span><br><span class="line">激活环境	source activate 环境名</span><br><span class="line">复制环境	conda create -n 新环境名 --clone 旧环境名</span><br><span class="line">删除环境	conda remove -n 环境名 --all</span><br><span class="line"># 包指令</span><br><span class="line">查看已安装包	conda list</span><br><span class="line">移除包		conda remove -n 环境名 安装包名</span><br><span class="line">移除当前环境中的包	conda remove package_name   </span><br><span class="line">更新包（某个）		conda update package_name</span><br><span class="line">更新包（全部）		conda update --all</span><br></pre></td></tr></table></figure>
+
+<h1 id="没有11-2CUDA版本的pytorch该怎么办"><a href="#没有11-2CUDA版本的pytorch该怎么办" class="headerlink" title="没有11.2CUDA版本的pytorch该怎么办"></a>没有11.2CUDA版本的pytorch该怎么办</h1><p>​        博主是11.2CUDA版本，但是不想装适配10.2CUDA的pytorch，于是查询<a target="_blank" rel="noopener" href="https://download.pytorch.org/whl/torch_stable.html">离线安装网站</a>找到了11.1CUDA版本的pytorch,下载好whl文件后在anaconda prompt内cd到对应安装路径安装即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install 文件名</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417211046410.png" alt="image-20220417211046410"></p>
+<p>​        从pytorch[官方](<a target="_blank" rel="noopener" href="https://github.com/pytorch/vision#installation">pytorch/vision: Datasets, Transforms and Models specific to Computer Vision (github.com)</a>)给出的适配版本中可以看出，torch版本和torchvision之间有要求，根据自己要求选择即可。</p>
+<p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417211319914.png" alt="image-20220417211319914"></p>
+<h1 id="2022-7-13更新"><a href="#2022-7-13更新" class="headerlink" title="2022.7.13更新"></a>2022.7.13更新</h1><p>今天在conda prompt内用命令更新了anaconda，结果导致缺少conda文件而不能使用conda命令，报错为：</p>
+<p><strong>AttributeError:module ’ruamel_yaml’ has no attribute ‘representer’</strong> </p>
+<p>网上搜了一通发现，重装anaconda也许是最省时的方法。于是重装了…</p>
+<p>现在conda版本是:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(base) C:\Users\XXXXX&gt;conda --version</span><br><span class="line">conda 4.12.0</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+	<div>
+	
+		<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	
+	</div>
+        <div class="reward-container">
+  <div>钱乃身外之物，开心无价。</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/uploads/wechatpay.jpg" alt="PoLo 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/uploads/alipay.jpg" alt="PoLo 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>PoLo
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://polo-0831.github.io/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/" title="【环境配置】windows+anaconda配置pytorch+gpu环境">https://polo-0831.github.io/2022/04/16/windows-anaconda配置pytorch-gpu环境/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/" rel="prev" title="记录Windows更新后崩溃">
+      <i class="fa fa-chevron-left"></i> 记录Windows更新后崩溃
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/06/04/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/" rel="next" title="论文笔记：Deep Learning for Person Re-identification:A Survey and Outlook（行人重识别综述）">
+      论文笔记：Deep Learning for Person Re-identification:A Survey and Outlook（行人重识别综述） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AF%B4%E7%82%B9%E4%BB%80%E4%B9%88"><span class="nav-number">1.</span> <span class="nav-text">说点什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Cuda%E5%92%8Ccudnn"><span class="nav-number">2.</span> <span class="nav-text">安装Cuda和cudnn</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CUDA"><span class="nav-number">2.1.</span> <span class="nav-text">CUDA</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFCUDA"><span class="nav-number">2.1.1.</span> <span class="nav-text">什么是CUDA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E5%90%88%E9%80%82%E7%89%88%E6%9C%AC%E7%9A%84CUDA"><span class="nav-number">2.1.2.</span> <span class="nav-text">下载安装合适版本的CUDA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cudnn"><span class="nav-number">2.2.</span> <span class="nav-text">Cudnn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFCudnn"><span class="nav-number">2.2.1.</span> <span class="nav-text">什么是Cudnn</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E6%AD%A3%E7%A1%AE%E7%89%88%E6%9C%AC%E7%9A%84Cudnn"><span class="nav-number">2.2.2.</span> <span class="nav-text">下载安装正确版本的Cudnn</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Pytorch"><span class="nav-number">3.</span> <span class="nav-text">安装Pytorch</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#conda%E6%8C%87%E4%BB%A4%E9%9B%86%E5%90%88"><span class="nav-number">3.1.</span> <span class="nav-text">conda指令集合</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B2%A1%E6%9C%8911-2CUDA%E7%89%88%E6%9C%AC%E7%9A%84pytorch%E8%AF%A5%E6%80%8E%E4%B9%88%E5%8A%9E"><span class="nav-number">4.</span> <span class="nav-text">没有11.2CUDA版本的pytorch该怎么办</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2022-7-13%E6%9B%B4%E6%96%B0"><span class="nav-number">5.</span> <span class="nav-text">2022.7.13更新</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="PoLo"
+      src="/uploads/apple-touch-icon-180x180_polo.jpg">
+  <p class="site-author-name" itemprop="name">PoLo</p>
+  <div class="site-description" itemprop="description">日月升落，总有黎明 --杨绛</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/polo-0831" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;polo-0831" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/" title="Twitter → https:&#x2F;&#x2F;cn.bing.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/" title="YouTube → https:&#x2F;&#x2F;cn.bing.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/" title="Instagram → https:&#x2F;&#x2F;cn.bing.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://music.163.com/#/user/home?id=587696570" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;587696570" rel="noopener" target="_blank">网易云音乐</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://space.bilibili.com/151399898?spm_id_from=333.1007.0.0" title="https:&#x2F;&#x2F;space.bilibili.com&#x2F;151399898?spm_id_from&#x3D;333.1007.0.0" rel="noopener" target="_blank">B站</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PoLo</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共14.6k字</span>
+  <span class="post-meta-divider">|</span>
+  本站总访问量<span id="busuanzi_value_site_pv"></span>次
+  <span class="post-meta-divider">|</span>
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  <span class="post-meta-divider">|</span>
+  本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='138,43,226' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'XxiRfuAXCDj2NF4Fj89kpIY1-9Nh9j0Va# Your leancloud application appid',
+      appKey     : 'brMQnza14TsEm3E9MYCslygq# Your leancloud application appkey',
+      placeholder: "期待与您的交流！",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
