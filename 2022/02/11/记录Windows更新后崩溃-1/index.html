@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/uploads/apple-touch-icon-180x180_polo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/uploads/favicon_polo-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/uploads/favicon_polo-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"polo-0831.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="前言​    我的电脑型号是机械革命Z3 Air-S10代 i7 显卡RTX2060 1T固态硬盘 32G内存，高中毕业后2020年7月在淘宝官方网店买的。 ​    2021年上半年一次阿波罗社团培训需要带电脑去配置环境，当时应该是不小心摔了一下导致开机后出现乱码卡住。。当时青涩的我很紧张，心想8000块电脑说坏就坏，真败家！学长也是第一次碰见这种问题无能为力（毕竟不同电脑问题不一样），于是我咨">
+<meta property="og:type" content="article">
+<meta property="og:title" content="记录Windows更新后崩溃">
+<meta property="og:url" content="https://polo-0831.github.io/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/index.html">
+<meta property="og:site_name" content="Po1o&#39;s Mind Palace">
+<meta property="og:description" content="前言​    我的电脑型号是机械革命Z3 Air-S10代 i7 显卡RTX2060 1T固态硬盘 32G内存，高中毕业后2020年7月在淘宝官方网店买的。 ​    2021年上半年一次阿波罗社团培训需要带电脑去配置环境，当时应该是不小心摔了一下导致开机后出现乱码卡住。。当时青涩的我很紧张，心想8000块电脑说坏就坏，真败家！学长也是第一次碰见这种问题无能为力（毕竟不同电脑问题不一样），于是我咨">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://polo-0831.github.io/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211154256815-16445653809671.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211150135911.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211153122913.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211153220743.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211153642930.png">
+<meta property="og:image" content="https://polo-0831.github.io/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211153657928.png">
+<meta property="article:published_time" content="2022-02-11T07:47:15.000Z">
+<meta property="article:modified_time" content="2022-09-06T08:04:43.501Z">
+<meta property="article:author" content="PoLo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://polo-0831.github.io/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211154256815-16445653809671.png">
+
+<link rel="canonical" href="https://polo-0831.github.io/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>记录Windows更新后崩溃 | Po1o's Mind Palace</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/clicklove.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Po1o's Mind Palace</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">日月升落，总有黎明 --杨绛</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://polo-0831.github.io/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/apple-touch-icon-180x180_polo.jpg">
+      <meta itemprop="name" content="PoLo">
+      <meta itemprop="description" content="日月升落，总有黎明 --杨绛">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Po1o's Mind Palace">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          记录Windows更新后崩溃
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-02-11 15:47:15" itemprop="dateCreated datePublished" datetime="2022-02-11T15:47:15+08:00">2022-02-11</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-09-06 16:04:43" itemprop="dateModified" datetime="2022-09-06T16:04:43+08:00">2022-09-06</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">技术博客</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​    我的电脑型号是<strong>机械革命Z3 Air-S10代 i7 显卡RTX2060 1T固态硬盘 32G内存</strong>，高中毕业后2020年7月在淘宝官方网店买的。</p>
+<p>​    2021年上半年一次阿波罗社团培训需要带电脑去配置环境，当时应该是不小心摔了一下导致开机后出现乱码卡住。。当时青涩的我很紧张，心想8000块电脑说坏就坏，真败家！学长也是第一次碰见这种问题无能为力（毕竟不同电脑问题不一样），于是我咨询了机械革命的线上售后，具体什么回复记不得了，反正一点用没有。</p>
+<p>​    不得不提一嘴，机械革命的线下维修门店太少了，整个广州就只有天河有一家，打电话还打不通。。。</p>
+<p>​    最后解决的方法居然是：晾在一边一两天。重新开机就好了😓不过从此以后Windows系统就是不是会卡顿，设置有时候会打不开。并且我的电脑会变成这样：没名称😓</p>
+<p><img src="/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211154256815-16445653809671.png" alt="image-20220211154256815"></p>
+<span id="more"></span>
+
+
+
+<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>​    事情要从2021.2.10晚说起。。。。</p>
+<p>​    这个晚上，windows关机时出现了更新按钮，也就是这样：</p>
+<p><img src="/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211150135911.png" alt="image-20220211150135911"></p>
+<p>​    我心想：好家伙，这次更新之后又会出现什么bug？我肯定不更新。事与愿违，我把电脑晾在一边睡觉去了。第二天起来电脑就自动更新并重启了！！！由于我电脑是ubuntu20.04和windows双系统，打开电脑一看是Ubuntu的登陆界面（即昨晚重启了一下，电脑开机默认引导到ubuntu上）。</p>
+<p>​    坏了，该不会windows给我自动更新了吧。我怀着忐忑的心情重启进入windows，令我最害怕的事情发生了。</p>
+<h2 id="Windows10崩溃"><a href="#Windows10崩溃" class="headerlink" title="Windows10崩溃"></a>Windows10崩溃</h2><p>​    崩溃过程是这样的：</p>
+<p>​        输入密码进入Windows→能正常使用→<strong>打开开始菜单→Windows界面崩溃，鼠标能动但是点不了任何东西</strong>→长按电源键关机</p>
+<p>细节：</p>
+<ol>
+<li>按电源键开机后能明显的听得到电流滋了一声</li>
+<li>进入win后右键刷新、打开文件夹、打开设置都会有明显卡顿</li>
+<li>拼音输入法不显示提示词条</li>
+</ol>
+<h2 id="思考解决方法"><a href="#思考解决方法" class="headerlink" title="思考解决方法"></a>思考解决方法</h2><ol>
+<li><p>开机时候有电流声音→会不会是硬盘出了问题？→查资料无果，准备请求官方售后</p>
+</li>
+<li><p>打开关于windows的UI会卡顿→会不会是系统更新后不稳定？→查询资料发现有几种办法</p>
+<p>1.恢复windows系统时间点→我之前没有备份过时间点于是不能恢复到更新之前→×</p>
+<p>2.重装系统→需要硬盘备份文件，并且要考虑双系统引导失败的后果→尚未实现</p>
+</li>
+<li><p>打开开始菜单会卡顿→于是参考了这篇博客，把Windows播放动画选项关掉了<a target="_blank" rel="noopener" href="https://www.jb51.net/os/win10/374647.html">Win10开始菜单反应很慢很卡怎么办？ 三种技巧任你挑选_windows10_Windows系列_操作系统_脚本之家 (jb51.net)</a>→开始菜单可以打开了→√</p>
+<p><img src="/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211153122913.png" alt="image-20220211153122913"></p>
+</li>
+<li><p>后来发现重启Windows资源管理器可以刷新系统，这样就不用每次卡住就热关机了<img src="/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211153220743.png" alt="image-20220211153220743"></p>
+</li>
+<li><p>输入拼音不显示联想词条→参考这篇博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44214577/article/details/113729407"> win10微软拼音输入法无提示怎么办</a>，把微软输入法旧版本的开关打开，使用旧版本就可以显示了。博客说是版本兼容性的问题。→Windows更新后出现bug或者不兼容的一个有利证据。</p>
+<p><img src="/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211153642930.png" alt="image-20220211153642930"></p>
+<p>老版本输入法↑</p>
+<p><img src="/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211153657928.png" alt="image-20220211153657928"></p>
+<p>输入法无联想词的bug↑</p>
+</li>
+</ol>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​    到此为止，问题筛选出来可能是Windows更新后不稳定，导致打开UI会卡顿。</p>
+<h2 id="教训"><a href="#教训" class="headerlink" title="教训"></a>教训</h2><pre><code> 1. 不要随意更新系统，最好关闭关机并更新的这个提示，网上有教程
+ 2. 最好准备好一个硬盘备份文件，以免不时之需。同时也要熟练重装系统的操作😓比如格式化C盘重装
+</code></pre>
+<p>​                                                                                                                                                       罗梓淇</p>
+<p>​                                                                                                                                      记录于2022.2.11</p>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>钱乃身外之物，开心无价。</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/uploads/wechatpay.jpg" alt="PoLo 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/uploads/alipay.jpg" alt="PoLo 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>PoLo
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://polo-0831.github.io/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/" title="记录Windows更新后崩溃">https://polo-0831.github.io/2022/02/11/记录Windows更新后崩溃-1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/12/19/%E8%AE%B0%E5%BD%95%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E5%80%99%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/" rel="prev" title="记录搭建博客的那些事">
+      <i class="fa fa-chevron-left"></i> 记录搭建博客的那些事
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/" rel="next" title="【环境配置】windows+anaconda配置pytorch+gpu环境">
+      【环境配置】windows+anaconda配置pytorch+gpu环境 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B5%B7%E5%9B%A0"><span class="nav-number">2.</span> <span class="nav-text">起因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows10%E5%B4%A9%E6%BA%83"><span class="nav-number">3.</span> <span class="nav-text">Windows10崩溃</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E8%80%83%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">思考解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%99%E8%AE%AD"><span class="nav-number">6.</span> <span class="nav-text">教训</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="PoLo"
+      src="/uploads/apple-touch-icon-180x180_polo.jpg">
+  <p class="site-author-name" itemprop="name">PoLo</p>
+  <div class="site-description" itemprop="description">日月升落，总有黎明 --杨绛</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/polo-0831" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;polo-0831" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/" title="Twitter → https:&#x2F;&#x2F;cn.bing.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/" title="YouTube → https:&#x2F;&#x2F;cn.bing.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-youtube fa-fw"></i>YouTube</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://cn.bing.com/" title="Instagram → https:&#x2F;&#x2F;cn.bing.com&#x2F;" rel="noopener" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+      </span>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://music.163.com/#/user/home?id=587696570" title="https:&#x2F;&#x2F;music.163.com&#x2F;#&#x2F;user&#x2F;home?id&#x3D;587696570" rel="noopener" target="_blank">网易云音乐</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://space.bilibili.com/151399898?spm_id_from=333.1007.0.0" title="https:&#x2F;&#x2F;space.bilibili.com&#x2F;151399898?spm_id_from&#x3D;333.1007.0.0" rel="noopener" target="_blank">B站</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">PoLo</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  <script color='138,43,226' opacity='0.5' zIndex='-1' count='150' src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  <script size="300" alpha="0.6" zIndex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'XxiRfuAXCDj2NF4Fj89kpIY1-9Nh9j0Va# Your leancloud application appid',
+      appKey     : 'brMQnza14TsEm3E9MYCslygq# Your leancloud application appkey',
+      placeholder: "期待与您的交流！",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : 'zh-cn' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2d_models/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2d_models/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2d_models/assets/assets/z16.model.json"},"display":{"position":"right","width":200,"height":400,"hOffset":100,"vOffset":-40},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
