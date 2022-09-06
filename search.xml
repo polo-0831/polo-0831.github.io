@@ -3,14 +3,10 @@
   <entry>
     <title>To-do List</title>
     <url>/2022/06/30/To-do%20List/</url>
-    <content><![CDATA[
-        <h1 id="To-do-List">
-          <a href="#To-do-List" class="heading-link"><i class="fas fa-link"></i></a><a href="#To-do-List" class="headerlink" title="To-do List"></a>To-do List</h1>
-      <p>记着一直想做的事，2022大二下留</p>
+    <content><![CDATA[<h1 id="To-do-List"><a href="#To-do-List" class="headerlink" title="To-do List"></a>To-do List</h1><p>记着一直想做的事，2022大二下留</p>
+<span id="more"></span>
 
-        <h2 id="学术上">
-          <a href="#学术上" class="heading-link"><i class="fas fa-link"></i></a><a href="#学术上" class="headerlink" title="学术上"></a>学术上</h2>
-      <ul>
+<h2 id="学术上"><a href="#学术上" class="headerlink" title="学术上"></a>学术上</h2><ul>
 <li><p><input checked disabled type="checkbox">  保持良好的求知欲</p>
 </li>
 <li><p><input disabled type="checkbox">  三年奖学金</p>
@@ -22,10 +18,7 @@
 <li><p><input disabled type="checkbox">  科研成功在IEEE上发表</p>
 </li>
 </ul>
-
-        <h2 id="兴趣爱好上">
-          <a href="#兴趣爱好上" class="heading-link"><i class="fas fa-link"></i></a><a href="#兴趣爱好上" class="headerlink" title="兴趣爱好上"></a>兴趣爱好上</h2>
-      <ul>
+<h2 id="兴趣爱好上"><a href="#兴趣爱好上" class="headerlink" title="兴趣爱好上"></a>兴趣爱好上</h2><ul>
 <li><p><input checked disabled type="checkbox">  用音乐和歌词记录自己的情感   2022.4.23</p>
 </li>
 <li><p><input disabled type="checkbox">  做出自己满意的一首电子</p>
@@ -49,10 +42,7 @@
 <li><input disabled type="checkbox"> 去国外看一场足球赛</li>
 <li><input disabled type="checkbox"> 让家人骄傲</li>
 </ul>
-
-        <h2 id="心态上">
-          <a href="#心态上" class="heading-link"><i class="fas fa-link"></i></a><a href="#心态上" class="headerlink" title="心态上"></a>心态上</h2>
-      <ul>
+<h2 id="心态上"><a href="#心态上" class="headerlink" title="心态上"></a>心态上</h2><ul>
 <li><input checked disabled type="checkbox"> 保持对世界充满好奇心</li>
 <li><input disabled type="checkbox"> 能吃更多不一样的苦</li>
 <li><input disabled type="checkbox"> 保持谦逊</li>
@@ -69,28 +59,15 @@
   <entry>
     <title>【环境配置】windows+anaconda配置pytorch+gpu环境</title>
     <url>/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/</url>
-    <content><![CDATA[
-        <h1 id="说点什么">
-          <a href="#说点什么" class="heading-link"><i class="fas fa-link"></i></a><a href="#说点什么" class="headerlink" title="说点什么"></a>说点什么</h1>
-      <p>​        为什么要自己写一篇环境配置的博客呢？前些日子系统坏了需要重装系统，再次配置环境的时候又要在网上搜索参差不齐的系统安装博客，很麻烦。</p>
+    <content><![CDATA[<h1 id="说点什么"><a href="#说点什么" class="headerlink" title="说点什么"></a>说点什么</h1><p>​        为什么要自己写一篇环境配置的博客呢？前些日子系统坏了需要重装系统，再次配置环境的时候又要在网上搜索参差不齐的系统安装博客，很麻烦。</p>
 <p>​        没错，怕麻烦，所以自己总结。</p>
 <p>​        本片文章没有赘述如何安装anaconda和python，记录了安装GPU相关工具包时的一些思考和具体安装方法。</p>
+<span id="more"></span>
 
-        <h1 id="安装Cuda和cudnn">
-          <a href="#安装Cuda和cudnn" class="heading-link"><i class="fas fa-link"></i></a><a href="#安装Cuda和cudnn" class="headerlink" title="安装Cuda和cudnn"></a>安装Cuda和cudnn</h1>
-      
-        <h2 id="CUDA">
-          <a href="#CUDA" class="heading-link"><i class="fas fa-link"></i></a><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2>
-      
-        <h3 id="什么是CUDA">
-          <a href="#什么是CUDA" class="heading-link"><i class="fas fa-link"></i></a><a href="#什么是CUDA" class="headerlink" title="什么是CUDA"></a>什么是CUDA</h3>
-      <p>​        2006年，NVIDIA公司发布了CUDA(Compute Unified Device Architecture)，是一种新的操作GPU计算的硬件和软件架构，是建立在NVIDIA的GPUs上的一个通用并行计算平台和编程模型，它提供了GPU编程的简易接口，基于CUDA编程可以构建基于GPU计算的应用程序，利用GPUs的并行计算引擎来更加高效地解决比较复杂的计算难题。它将GPU视作一个数据并行计算设备，而且无需把这些计算映射到图形API。操作系统的多任务机制可以同时管理CUDA访问GPU和图形程序的运行库，其计算特性支持利用CUDA直观地编写GPU核心程序。</p>
+<h1 id="安装Cuda和cudnn"><a href="#安装Cuda和cudnn" class="headerlink" title="安装Cuda和cudnn"></a>安装Cuda和cudnn</h1><h2 id="CUDA"><a href="#CUDA" class="headerlink" title="CUDA"></a>CUDA</h2><h3 id="什么是CUDA"><a href="#什么是CUDA" class="headerlink" title="什么是CUDA"></a>什么是CUDA</h3><p>​        2006年，NVIDIA公司发布了CUDA(Compute Unified Device Architecture)，是一种新的操作GPU计算的硬件和软件架构，是建立在NVIDIA的GPUs上的一个通用并行计算平台和编程模型，它提供了GPU编程的简易接口，基于CUDA编程可以构建基于GPU计算的应用程序，利用GPUs的并行计算引擎来更加高效地解决比较复杂的计算难题。它将GPU视作一个数据并行计算设备，而且无需把这些计算映射到图形API。操作系统的多任务机制可以同时管理CUDA访问GPU和图形程序的运行库，其计算特性支持利用CUDA直观地编写GPU核心程序。</p>
 <p>​        <strong>我自己的理解：CUDA类似于驱动，是用户对显卡编程的接口，安装了它就能使用你的GPU进行编程了。就像操控电机需要设计驱动模块来调整电平，否则单片机不能直接控制。</strong></p>
 <p>​        我们想增加神经网络的训练速度，当然想尽可能的提高自己电脑的算力，如果用CPU版本的话，你的显卡（GPU）就在发呆，摆烂怎么可以呢！所以我们安装CUDN，配合pytorch的GPU版本进行网络训练。</p>
-
-        <h3 id="下载安装合适版本的CUDA">
-          <a href="#下载安装合适版本的CUDA" class="heading-link"><i class="fas fa-link"></i></a><a href="#下载安装合适版本的CUDA" class="headerlink" title="下载安装合适版本的CUDA"></a>下载安装合适版本的CUDA</h3>
-      <p>​    <strong>1、查看你的电脑显卡支持的CUDA版本</strong></p>
+<h3 id="下载安装合适版本的CUDA"><a href="#下载安装合适版本的CUDA" class="headerlink" title="下载安装合适版本的CUDA"></a>下载安装合适版本的CUDA</h3><p>​    <strong>1、查看你的电脑显卡支持的CUDA版本</strong></p>
 <p>​        方法一：通过N卡控制面板</p>
 <p>​        ①右键右下角nvidia面板进入N卡控制面板</p>
 <p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416161928461.png" alt="image-20220416161928461"></p>
@@ -101,7 +78,7 @@
 <p>​        方法二：cmd命令行输入 nvidia-smi</p>
 <p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162316611.png" alt="image-20220416162316611"></p>
 <p>​    <strong>2、下载CUDA</strong></p>
-<p>​        ①进入[CUDA官网](<span class="exturl"><a class="exturl__link" href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA Toolkit Archive | NVIDIA Developer</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>)查看自己的版本下载安装软件，并且安装（无需修改路径，环境的东西就塞在C盘）</p>
+<p>​        ①进入[CUDA官网](<a href="https://developer.nvidia.com/cuda-toolkit-archive">CUDA Toolkit Archive | NVIDIA Developer</a>)查看自己的版本下载安装软件，并且安装（无需修改路径，环境的东西就塞在C盘）</p>
 <p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162621413.png" alt="image-20220416162621413"></p>
 <p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162737991.png" alt="image-20220416162737991"></p>
 <p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416162932165.png" alt="image-20220416162932165"></p>
@@ -115,18 +92,9 @@
 <p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416163403965.png" alt="image-20220416163403965"></p>
 <p>安装结束之后在CMD中输入nvcc -V，输出如下信息则为成功：</p>
 <p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416163648581.png" alt="image-20220416163648581"></p>
-
-        <h2 id="Cudnn">
-          <a href="#Cudnn" class="heading-link"><i class="fas fa-link"></i></a><a href="#Cudnn" class="headerlink" title="Cudnn"></a>Cudnn</h2>
-      
-        <h3 id="什么是Cudnn">
-          <a href="#什么是Cudnn" class="heading-link"><i class="fas fa-link"></i></a><a href="#什么是Cudnn" class="headerlink" title="什么是Cudnn"></a>什么是Cudnn</h3>
-      <p>​        CUDNN(CUDA Deep Neural Network library)：是NVIDIA打造的针对深度神经网络的加速库，是一个用于深层神经网络的GPU加速库。如果你要用GPU训练模型，cuDNN不是必须的，但是一般会采用这个加速库。</p>
+<h2 id="Cudnn"><a href="#Cudnn" class="headerlink" title="Cudnn"></a>Cudnn</h2><h3 id="什么是Cudnn"><a href="#什么是Cudnn" class="headerlink" title="什么是Cudnn"></a>什么是Cudnn</h3><p>​        CUDNN(CUDA Deep Neural Network library)：是NVIDIA打造的针对深度神经网络的加速库，是一个用于深层神经网络的GPU加速库。如果你要用GPU训练模型，cuDNN不是必须的，但是一般会采用这个加速库。</p>
 <p>​        我的理解：就是在CUDA“软件驱动”上增加更多工具，类似于python库内增加多几个函数供用户使用</p>
-
-        <h3 id="下载安装正确版本的Cudnn">
-          <a href="#下载安装正确版本的Cudnn" class="heading-link"><i class="fas fa-link"></i></a><a href="#下载安装正确版本的Cudnn" class="headerlink" title="下载安装正确版本的Cudnn"></a>下载安装正确版本的Cudnn</h3>
-      <p>​        进入<span class="exturl"><a class="exturl__link" href="https://developer.nvidia.com/rdp/cudnn-archive#a-collapse51b">Cudnn官方下载链接</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>，我这里选择匹配我CUDA11.2版本的Cudnn</p>
+<h3 id="下载安装正确版本的Cudnn"><a href="#下载安装正确版本的Cudnn" class="headerlink" title="下载安装正确版本的Cudnn"></a>下载安装正确版本的Cudnn</h3><p>​        进入<a href="https://developer.nvidia.com/rdp/cudnn-archive#a-collapse51b">Cudnn官方下载链接</a>，我这里选择匹配我CUDA11.2版本的Cudnn</p>
 <p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220416164205958.png" alt="image-20220416164205958"></p>
 <p>​        解压cudnn-11.2-windows-x64-v8.1.1.33.zip压缩包，将压缩包内的三个文件夹复制，粘贴到C:\Program Files\NVIDIA GPU Toolkit\CUDA\v11.2 中，出现是否替换的提示选择替换即可。</p>
 <p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417203906152.png" alt="image-20220417203906152"></p>
@@ -137,47 +105,35 @@
 <p>​        C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2\include</p>
 <p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417204304640.png" alt="image-20220417204304640"></p>
 <p>​        重启生效，完成安装。</p>
-
-        <h1 id="安装Pytorch">
-          <a href="#安装Pytorch" class="heading-link"><i class="fas fa-link"></i></a><a href="#安装Pytorch" class="headerlink" title="安装Pytorch"></a>安装Pytorch</h1>
-      <p>​        进入pytorch[官方网站](<span class="exturl"><a class="exturl__link" href="https://pytorch.org/get-started/locally/">Start Locally | PyTorch</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>)，选择比自己CUDA版本低的安装，这里假设选择11.3，复制下面生成的conda命令。</p>
+<h1 id="安装Pytorch"><a href="#安装Pytorch" class="headerlink" title="安装Pytorch"></a>安装Pytorch</h1><p>​        进入pytorch[官方网站](<a href="https://pytorch.org/get-started/locally/">Start Locally | PyTorch</a>)，选择比自己CUDA版本低的安装，这里假设选择11.3，复制下面生成的conda命令。</p>
 <p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417204557907.png" alt="image-20220417204557907"></p>
 <p>​        打开anaconda prompt命令行窗口，如下所示，路径前括号内代表当前所处的anaconda建立的环境，默认是base。初次登陆conda的话先换源，否则下载的库会很慢。</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line"># 清华源</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --set show_channel_urls yes   # 设置搜索时显示通道地址</span><br><span class="line"></span><br><span class="line"># or 中科大源</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 清华源</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --set show_channel_urls yes   # 设置搜索时显示通道地址</span><br><span class="line"></span><br><span class="line"># or 中科大源</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/free/</span><br><span class="line">conda config --add channels https://mirrors.ustc.edu.cn/anaconda/pkgs/main/</span><br><span class="line">conda config --set show_channel_urls yes</span><br></pre></td></tr></table></figure>
 
 <p>​        换源之后，新建conda环境，随后按y表示同意下载。</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">conda create -n 环境名 python=x.x</span><br><span class="line">例： conda create -n pytorch python=3.8</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda create -n 环境名 python=x.x</span><br><span class="line">例： conda create -n pytorch python=3.8</span><br></pre></td></tr></table></figure>
 
 <p>​        激活刚才新建的环境</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">conda activate 环境名</span><br><span class="line">例：conda activate pytorch</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda activate 环境名</span><br><span class="line">例：conda activate pytorch</span><br></pre></td></tr></table></figure>
 
 <p>​        将刚才在官网复制的conda命令粘贴运行即可，输入y之后开始下载。没换源的话下载很慢。下载完毕后，输入以下指令即可查看已安装的包</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">conda list</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417210241098.png" alt="image-20220417210241098"></p>
 <p>​        完成配置，在pycharm上就可以使用已经配置好的conda环境。</p>
+<h2 id="conda指令集合"><a href="#conda指令集合" class="headerlink" title="conda指令集合"></a>conda指令集合</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># 环境指令</span><br><span class="line">列出所有环境	conda info --envs</span><br><span class="line">检查环境中python版本	python --version</span><br><span class="line">新建环境	conda create -n 环境名 python=3.7</span><br><span class="line">激活环境	source activate 环境名</span><br><span class="line">复制环境	conda create -n 新环境名 --clone 旧环境名</span><br><span class="line">删除环境	conda remove -n 环境名 --all</span><br><span class="line"># 包指令</span><br><span class="line">查看已安装包	conda list</span><br><span class="line">移除包		conda remove -n 环境名 安装包名</span><br><span class="line">移除当前环境中的包	conda remove package_name   </span><br><span class="line">更新包（某个）		conda update package_name</span><br><span class="line">更新包（全部）		conda update --all</span><br></pre></td></tr></table></figure>
 
-        <h2 id="conda指令集合">
-          <a href="#conda指令集合" class="heading-link"><i class="fas fa-link"></i></a><a href="#conda指令集合" class="headerlink" title="conda指令集合"></a>conda指令集合</h2>
-      <figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line"># 环境指令</span><br><span class="line">列出所有环境	conda info --envs</span><br><span class="line">检查环境中python版本	python --version</span><br><span class="line">新建环境	conda create -n 环境名 python=3.7</span><br><span class="line">激活环境	source activate 环境名</span><br><span class="line">复制环境	conda create -n 新环境名 --clone 旧环境名</span><br><span class="line">删除环境	conda remove -n 环境名 --all</span><br><span class="line"># 包指令</span><br><span class="line">查看已安装包	conda list</span><br><span class="line">移除包		conda remove -n 环境名 安装包名</span><br><span class="line">移除当前环境中的包	conda remove package_name   </span><br><span class="line">更新包（某个）		conda update package_name</span><br><span class="line">更新包（全部）		conda update --all</span><br></pre></td></tr></table></div></figure>
-
-
-        <h1 id="没有11-2CUDA版本的pytorch该怎么办">
-          <a href="#没有11-2CUDA版本的pytorch该怎么办" class="heading-link"><i class="fas fa-link"></i></a><a href="#没有11-2CUDA版本的pytorch该怎么办" class="headerlink" title="没有11.2CUDA版本的pytorch该怎么办"></a>没有11.2CUDA版本的pytorch该怎么办</h1>
-      <p>​        博主是11.2CUDA版本，但是不想装适配10.2CUDA的pytorch，于是查询<span class="exturl"><a class="exturl__link" href="https://download.pytorch.org/whl/torch_stable.html">离线安装网站</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>找到了11.1CUDA版本的pytorch,下载好whl文件后在anaconda prompt内cd到对应安装路径安装即可。</p>
-<figure class="highlight plaintext"><div class="table-container"><table><tr><td class="code"><pre><span class="line">pip install 文件名</span><br></pre></td></tr></table></div></figure>
+<h1 id="没有11-2CUDA版本的pytorch该怎么办"><a href="#没有11-2CUDA版本的pytorch该怎么办" class="headerlink" title="没有11.2CUDA版本的pytorch该怎么办"></a>没有11.2CUDA版本的pytorch该怎么办</h1><p>​        博主是11.2CUDA版本，但是不想装适配10.2CUDA的pytorch，于是查询<a href="https://download.pytorch.org/whl/torch_stable.html">离线安装网站</a>找到了11.1CUDA版本的pytorch,下载好whl文件后在anaconda prompt内cd到对应安装路径安装即可。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">pip install 文件名</span><br></pre></td></tr></table></figure>
 
 <p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417211046410.png" alt="image-20220417211046410"></p>
-<p>​        从pytorch[官方](<span class="exturl"><a class="exturl__link" href="https://github.com/pytorch/vision#installation">pytorch/vision: Datasets, Transforms and Models specific to Computer Vision (github.com)</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>)给出的适配版本中可以看出，torch版本和torchvision之间有要求，根据自己要求选择即可。</p>
+<p>​        从pytorch[官方](<a href="https://github.com/pytorch/vision#installation">pytorch/vision: Datasets, Transforms and Models specific to Computer Vision (github.com)</a>)给出的适配版本中可以看出，torch版本和torchvision之间有要求，根据自己要求选择即可。</p>
 <p><img src="/2022/04/16/windows-anaconda%E9%85%8D%E7%BD%AEpytorch-gpu%E7%8E%AF%E5%A2%83/image-20220417211319914.png" alt="image-20220417211319914"></p>
-
-        <h1 id="2022-7-13更新">
-          <a href="#2022-7-13更新" class="heading-link"><i class="fas fa-link"></i></a><a href="#2022-7-13更新" class="headerlink" title="2022.7.13更新"></a>2022.7.13更新</h1>
-      <p>今天在conda prompt内用命令更新了anaconda，结果导致缺少conda文件而不能使用conda命令，报错为：</p>
+<h1 id="2022-7-13更新"><a href="#2022-7-13更新" class="headerlink" title="2022.7.13更新"></a>2022.7.13更新</h1><p>今天在conda prompt内用命令更新了anaconda，结果导致缺少conda文件而不能使用conda命令，报错为：</p>
 <p><strong>AttributeError:module ’ruamel_yaml’ has no attribute ‘representer’</strong> </p>
 <p>网上搜了一通发现，重装anaconda也许是最省时的方法。于是重装了…</p>
 <p>现在conda版本是:</p>
-<figure class="highlight shell"><div class="table-container"><table><tr><td class="code"><pre><span class="line">(base) C:\Users\XXXXX&gt;conda --version</span><br><span class="line">conda 4.12.0</span><br></pre></td></tr></table></div></figure>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">(base) C:\Users\XXXXX&gt;conda --version</span><br><span class="line">conda 4.12.0</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -292,7 +248,9 @@
   <entry>
     <title>神经网络学习笔记</title>
     <url>/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="一、网络基础构成"><a href="#一、网络基础构成" class="headerlink" title="一、网络基础构成"></a>一、网络基础构成</h1><p>以最基础的CNN网络架构为例：包含<strong>卷积层、池化层和全连接层</strong></p>
+    <content><![CDATA[<span id="more"></span>
+
+<h1 id="一、网络基础构成"><a href="#一、网络基础构成" class="headerlink" title="一、网络基础构成"></a>一、网络基础构成</h1><p>以最基础的CNN网络架构为例：包含<strong>卷积层、池化层和全连接层</strong></p>
 <p><img src="/2022/07/08/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20220708124629305.png" alt="image-20220708124629305"></p>
 <p><a href="https://zhuanlan.zhihu.com/p/27642620">待看的神经网络各个部分的理解</a></p>
 <p><strong>作用</strong></p>
@@ -402,26 +360,21 @@
   <entry>
     <title>记录Windows更新后崩溃</title>
     <url>/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/</url>
-    <content><![CDATA[
-        <h2 id="前言">
-          <a href="#前言" class="heading-link"><i class="fas fa-link"></i></a><a href="#前言" class="headerlink" title="前言"></a>前言</h2>
-      <p>​    我的电脑型号是<strong>机械革命Z3 Air-S10代 i7 显卡RTX2060 1T固态硬盘 32G内存</strong>，高中毕业后2020年7月在淘宝官方网店买的。</p>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>​    我的电脑型号是<strong>机械革命Z3 Air-S10代 i7 显卡RTX2060 1T固态硬盘 32G内存</strong>，高中毕业后2020年7月在淘宝官方网店买的。</p>
 <p>​    2021年上半年一次阿波罗社团培训需要带电脑去配置环境，当时应该是不小心摔了一下导致开机后出现乱码卡住。。当时青涩的我很紧张，心想8000块电脑说坏就坏，真败家！学长也是第一次碰见这种问题无能为力（毕竟不同电脑问题不一样），于是我咨询了机械革命的线上售后，具体什么回复记不得了，反正一点用没有。</p>
 <p>​    不得不提一嘴，机械革命的线下维修门店太少了，整个广州就只有天河有一家，打电话还打不通。。。</p>
 <p>​    最后解决的方法居然是：晾在一边一两天。重新开机就好了😓不过从此以后Windows系统就是不是会卡顿，设置有时候会打不开。并且我的电脑会变成这样：没名称😓</p>
 <p><img src="/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211154256815-16445653809671.png" alt="image-20220211154256815"></p>
+<span id="more"></span>
 
-        <h2 id="起因">
-          <a href="#起因" class="heading-link"><i class="fas fa-link"></i></a><a href="#起因" class="headerlink" title="起因"></a>起因</h2>
-      <p>​    事情要从2021.2.10晚说起。。。。</p>
+
+
+<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>​    事情要从2021.2.10晚说起。。。。</p>
 <p>​    这个晚上，windows关机时出现了更新按钮，也就是这样：</p>
 <p><img src="/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211150135911.png" alt="image-20220211150135911"></p>
 <p>​    我心想：好家伙，这次更新之后又会出现什么bug？我肯定不更新。事与愿违，我把电脑晾在一边睡觉去了。第二天起来电脑就自动更新并重启了！！！由于我电脑是ubuntu20.04和windows双系统，打开电脑一看是Ubuntu的登陆界面（即昨晚重启了一下，电脑开机默认引导到ubuntu上）。</p>
 <p>​    坏了，该不会windows给我自动更新了吧。我怀着忐忑的心情重启进入windows，令我最害怕的事情发生了。</p>
-
-        <h2 id="Windows10崩溃">
-          <a href="#Windows10崩溃" class="heading-link"><i class="fas fa-link"></i></a><a href="#Windows10崩溃" class="headerlink" title="Windows10崩溃"></a>Windows10崩溃</h2>
-      <p>​    崩溃过程是这样的：</p>
+<h2 id="Windows10崩溃"><a href="#Windows10崩溃" class="headerlink" title="Windows10崩溃"></a>Windows10崩溃</h2><p>​    崩溃过程是这样的：</p>
 <p>​        输入密码进入Windows→能正常使用→<strong>打开开始菜单→Windows界面崩溃，鼠标能动但是点不了任何东西</strong>→长按电源键关机</p>
 <p>细节：</p>
 <ol>
@@ -429,36 +382,27 @@
 <li>进入win后右键刷新、打开文件夹、打开设置都会有明显卡顿</li>
 <li>拼音输入法不显示提示词条</li>
 </ol>
-
-        <h2 id="思考解决方法">
-          <a href="#思考解决方法" class="heading-link"><i class="fas fa-link"></i></a><a href="#思考解决方法" class="headerlink" title="思考解决方法"></a>思考解决方法</h2>
-      <ol>
+<h2 id="思考解决方法"><a href="#思考解决方法" class="headerlink" title="思考解决方法"></a>思考解决方法</h2><ol>
 <li><p>开机时候有电流声音→会不会是硬盘出了问题？→查资料无果，准备请求官方售后</p>
 </li>
 <li><p>打开关于windows的UI会卡顿→会不会是系统更新后不稳定？→查询资料发现有几种办法</p>
 <p>1.恢复windows系统时间点→我之前没有备份过时间点于是不能恢复到更新之前→×</p>
 <p>2.重装系统→需要硬盘备份文件，并且要考虑双系统引导失败的后果→尚未实现</p>
 </li>
-<li><p>打开开始菜单会卡顿→于是参考了这篇博客，把Windows播放动画选项关掉了<span class="exturl"><a class="exturl__link" href="https://www.jb51.net/os/win10/374647.html">Win10开始菜单反应很慢很卡怎么办？ 三种技巧任你挑选_windows10_Windows系列_操作系统_脚本之家 (jb51.net)</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>→开始菜单可以打开了→√</p>
+<li><p>打开开始菜单会卡顿→于是参考了这篇博客，把Windows播放动画选项关掉了<a href="https://www.jb51.net/os/win10/374647.html">Win10开始菜单反应很慢很卡怎么办？ 三种技巧任你挑选_windows10_Windows系列_操作系统_脚本之家 (jb51.net)</a>→开始菜单可以打开了→√</p>
 <p><img src="/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211153122913.png" alt="image-20220211153122913"></p>
 </li>
 <li><p>后来发现重启Windows资源管理器可以刷新系统，这样就不用每次卡住就热关机了<img src="/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211153220743.png" alt="image-20220211153220743"></p>
 </li>
-<li><p>输入拼音不显示联想词条→参考这篇博客<span class="exturl"><a class="exturl__link" href="https://blog.csdn.net/weixin_44214577/article/details/113729407"> win10微软拼音输入法无提示怎么办</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>，把微软输入法旧版本的开关打开，使用旧版本就可以显示了。博客说是版本兼容性的问题。→Windows更新后出现bug或者不兼容的一个有利证据。</p>
+<li><p>输入拼音不显示联想词条→参考这篇博客<a href="https://blog.csdn.net/weixin_44214577/article/details/113729407"> win10微软拼音输入法无提示怎么办</a>，把微软输入法旧版本的开关打开，使用旧版本就可以显示了。博客说是版本兼容性的问题。→Windows更新后出现bug或者不兼容的一个有利证据。</p>
 <p><img src="/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211153642930.png" alt="image-20220211153642930"></p>
 <p>老版本输入法↑</p>
 <p><img src="/2022/02/11/%E8%AE%B0%E5%BD%95Windows%E6%9B%B4%E6%96%B0%E5%90%8E%E5%B4%A9%E6%BA%83-1/image-20220211153657928.png" alt="image-20220211153657928"></p>
 <p>输入法无联想词的bug↑</p>
 </li>
 </ol>
-
-        <h2 id="总结">
-          <a href="#总结" class="heading-link"><i class="fas fa-link"></i></a><a href="#总结" class="headerlink" title="总结"></a>总结</h2>
-      <p>​    到此为止，问题筛选出来可能是Windows更新后不稳定，导致打开UI会卡顿。</p>
-
-        <h2 id="教训">
-          <a href="#教训" class="heading-link"><i class="fas fa-link"></i></a><a href="#教训" class="headerlink" title="教训"></a>教训</h2>
-      <pre><code> 1. 不要随意更新系统，最好关闭关机并更新的这个提示，网上有教程
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>​    到此为止，问题筛选出来可能是Windows更新后不稳定，导致打开UI会卡顿。</p>
+<h2 id="教训"><a href="#教训" class="headerlink" title="教训"></a>教训</h2><pre><code> 1. 不要随意更新系统，最好关闭关机并更新的这个提示，网上有教程
  2. 最好准备好一个硬盘备份文件，以免不时之需。同时也要熟练重装系统的操作😓比如格式化C盘重装
 </code></pre>
 <p>​                                                                                                                                                       罗梓淇</p>
@@ -471,7 +415,10 @@
   <entry>
     <title>信号与系统--傅里叶变换的思考</title>
     <url>/2022/07/06/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F-%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E6%80%9D%E8%80%83/</url>
-    <content><![CDATA[<p>一切源于一个疑问，为什么傅里叶正变换表达式中将时域信号f乘上虚指数因子再积分就能转换为频域呢？第一直觉便是欧拉公式，合适的时域信号可以转换为一系列不同频率的余弦信号，欧拉公式恰好是连接指数与三角函数的桥梁，隐隐约约的在公式里体现了它转换的内涵。但是这一个虚指数因子到底是怎么运作的呢？<br>假设现在有一个频率为3的余弦信号，1s振动3次，如果我用旋转矢量图来表示余弦信号的幅值［0，2A］，矢量长度代表余弦信号幅值大小。旋转矢量每2s转一圈，那么图中大概可以看出是画了六个花瓣（对应2s内信号的六个幅值）；倘若旋转矢量每1/3s转一圈，即1秒3圈，那么图中只有一个花瓣。</p>
+    <content><![CDATA[<p>一切源于一个疑问，为什么傅里叶正变换表达式中将时域信号f乘上虚指数因子再积分就能转换为频域呢？</p>
+<span id="more"></span>
+
+<p>第一直觉便是欧拉公式，合适的时域信号可以转换为一系列不同频率的余弦信号，欧拉公式恰好是连接指数与三角函数的桥梁，隐隐约约的在公式里体现了它转换的内涵。但是这一个虚指数因子到底是怎么运作的呢？<br>假设现在有一个频率为3的余弦信号，1s振动3次，如果我用旋转矢量图来表示余弦信号的幅值［0，2A］，矢量长度代表余弦信号幅值大小。旋转矢量每2s转一圈，那么图中大概可以看出是画了六个花瓣（对应2s内信号的六个幅值）；倘若旋转矢量每1/3s转一圈，即1秒3圈，那么图中只有一个花瓣。</p>
 <p><img src="/2022/07/06/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F-%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E6%80%9D%E8%80%83/419C4FEBDCEDFC3694F4FA0AB8FC9DBB.jpg" alt="img"></p>
 <p><strong>恰好旋转矢量的旋转频率正是对应着余弦信号的频率。真的是巧合吗？</strong><br>随着旋转矢量的转速发生变化，花瓣数量也在变化，但画出的图像也会有混沌的时刻，当达到信号频率的时候就会变得有规律。如果我们能找到一种描述图形规律性的办法，就能找出我们需要的旋转频率。这里我们吧图形看作一个有质量的物体，存在重心（如下图红点）。当图形混沌的时候，重心总是接近于原点；而当其规律的时候，重心将会相对偏移原点很多。如果我们把重心离原点的距离向量与旋转频率联系起来，画出二维函数图，就能找到我们所要的频率。</p>
 <p><img src="/2022/07/06/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%B3%BB%E7%BB%9F-%E5%82%85%E9%87%8C%E5%8F%B6%E5%8F%98%E6%8D%A2%E7%9A%84%E6%80%9D%E8%80%83/443548F907E8412739E85369052E5650-16571181147071.jpg" alt="img"></p>
@@ -488,10 +435,10 @@
   <entry>
     <title>记录搭建博客的那些事</title>
     <url>/2021/12/19/%E8%AE%B0%E5%BD%95%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E5%80%99%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/</url>
-    <content><![CDATA[
-        <h1 id="有话要说">
-          <a href="#有话要说" class="heading-link"><i class="fas fa-link"></i></a><a href="#有话要说" class="headerlink" title="有话要说"></a>有话要说</h1>
-      <p>​        现在是大二上学期刚考完物理实验考试的一个下午。搁置了很久的待办终于完成了——搭建一个技术博客。当初看到科协里大家都有属于自己的技术博客，就一直很想搭建一个属于自己的博客。抛开新鲜感不谈，想搭建博客的原因有很多：</p>
+    <content><![CDATA[<h1 id="有话要说"><a href="#有话要说" class="headerlink" title="有话要说"></a>有话要说</h1><p>​        现在是大二上学期刚考完物理实验考试的一个下午。搁置了很久的待办终于完成了——搭建一个技术博客。当初看到科协里大家都有属于自己的技术博客，就一直很想搭建一个属于自己的博客。</p>
+<span id="more"></span>
+
+<p>抛开新鲜感不谈，想搭建博客的原因有很多：</p>
 <ul>
 <li>记录大学内的学习历程，记录自己变得越来越好</li>
 <li>回顾自己从前的时间点，督促自己要计划好未来的学习历程并设定时间点</li>
@@ -503,18 +450,12 @@
 <p>​        少画饼，少偷懒，多交际，多做事。</p>
 <p>​        <strong>我的博客搭建采用的是Hexo＋github pages方案，属于不需要租借域名的方案。</strong></p>
 <hr>
-
-        <h1 id="学习搭建博客浏览过的有用的教程网站">
-          <a href="#学习搭建博客浏览过的有用的教程网站" class="heading-link"><i class="fas fa-link"></i></a><a href="#学习搭建博客浏览过的有用的教程网站" class="headerlink" title="学习搭建博客浏览过的有用的教程网站"></a>学习搭建博客浏览过的有用的教程网站</h1>
-      <p><span class="exturl"><a class="exturl__link" href="https://www.cnblogs.com/huanhao/p/hexobase.html">【基础篇】hexo博客搭建教程 （参考的配置文件教程）</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span><strong>PS：属于是从头到尾保姆级教程了，按着它的步骤做，就能搭建成功。</strong></p>
-<p><span class="exturl"><a class="exturl__link" href="https://theme-stun.github.io/docs/zh-CN/guide/primary.html#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">新手上路 | hexo-theme-stun （主题stun的指导教程）</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>PS：<strong>我采用的Hexo主题是stun</strong>，这里是stun官方提供的教学文档，可以调整自己的博客界面等等，整出更多花样</p>
+<h1 id="学习搭建博客浏览过的有用的教程网站"><a href="#学习搭建博客浏览过的有用的教程网站" class="headerlink" title="学习搭建博客浏览过的有用的教程网站"></a>学习搭建博客浏览过的有用的教程网站</h1><p><a href="https://www.cnblogs.com/huanhao/p/hexobase.html">【基础篇】hexo博客搭建教程 （参考的配置文件教程）</a><strong>PS：属于是从头到尾保姆级教程了，按着它的步骤做，就能搭建成功。</strong></p>
+<p><a href="https://theme-stun.github.io/docs/zh-CN/guide/primary.html#%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6">新手上路 | hexo-theme-stun （主题stun的指导教程）</a>PS：<strong>我采用的Hexo主题是stun</strong>，这里是stun官方提供的教学文档，可以调整自己的博客界面等等，整出更多花样</p>
 <p><strong>下面是写博客要查的东西</strong></p>
-<p><span class="exturl"><a class="exturl__link" href="https://markdown.com.cn/basic-syntax/">Markdown 基本语法 | Markdown 官方教程</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>PS：markdown的基本语法（另外还有扩展语法），当作字典使用。常用的为<strong>标题</strong>、<strong>列表</strong>、<strong>图片</strong>、<strong>超链接</strong>、<strong>代码块</strong>功能。</p>
-<p><span class="exturl"><a class="exturl__link" href="https://www.typora.net/1249.html">Typora入门：全网最全教程 | typora中文网</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>PS：Typora的快捷键字典，用<code>Ctrl</code>＋<code>F</code>搜索关键词</p>
-
-        <h1 id="搭建时碰到的新领域">
-          <a href="#搭建时碰到的新领域" class="heading-link"><i class="fas fa-link"></i></a><a href="#搭建时碰到的新领域" class="headerlink" title="搭建时碰到的新领域"></a>搭建时碰到的新领域</h1>
-      <div class="table-container"><table>
+<p><a href="https://markdown.com.cn/basic-syntax/">Markdown 基本语法 | Markdown 官方教程</a>PS：markdown的基本语法（另外还有扩展语法），当作字典使用。常用的为<strong>标题</strong>、<strong>列表</strong>、<strong>图片</strong>、<strong>超链接</strong>、<strong>代码块</strong>功能。</p>
+<p><a href="https://www.typora.net/1249.html">Typora入门：全网最全教程 | typora中文网</a>PS：Typora的快捷键字典，用<code>Ctrl</code>＋<code>F</code>搜索关键词</p>
+<h1 id="搭建时碰到的新领域"><a href="#搭建时碰到的新领域" class="headerlink" title="搭建时碰到的新领域"></a>搭建时碰到的新领域</h1><table>
 <thead>
 <tr>
 <th>新领域</th>
@@ -533,15 +474,9 @@
 <td>CSS</td>
 <td>用来指定文档如何通过HTML展示给用户的一门语言</td>
 </tr>
-</tbody></table></div>
-
-        <h2 id="关于Hexo">
-          <a href="#关于Hexo" class="heading-link"><i class="fas fa-link"></i></a><a href="#关于Hexo" class="headerlink" title="关于Hexo"></a>关于Hexo</h2>
-      <p>​        Hexo 是一个快速、简洁且高效的博客框架。官网：<span class="exturl"><a class="exturl__link" href="https://hexo.io/zh-cn/">Hexo</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>。上文提到的搭建博客教程内阐述了如何安装以及使用Hexo框架，在这里就不再赘述。它可以建立一个离线博客，即在本地运行hexo配置的文件（git bash内用hexo s命令），用<a href="http://localhost:4000即可登录（注意这只是本地网址，只有自己的电脑可以访问）。">http://localhost:4000即可登录（注意这只是本地网址，只有自己的电脑可以访问）。</a></p>
-
-        <h4 id="基于hexo建立的博客文件概览">
-          <a href="#基于hexo建立的博客文件概览" class="heading-link"><i class="fas fa-link"></i></a><a href="#基于hexo建立的博客文件概览" class="headerlink" title="基于hexo建立的博客文件概览"></a>基于hexo建立的博客文件概览</h4>
-      <p><img src="/2021/12/19/%E8%AE%B0%E5%BD%95%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E5%80%99%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/image-20211219154727502.png" alt="image-20211219154727502"></p>
+</tbody></table>
+<h2 id="关于Hexo"><a href="#关于Hexo" class="headerlink" title="关于Hexo"></a>关于Hexo</h2><p>​        Hexo 是一个快速、简洁且高效的博客框架。官网：<a href="https://hexo.io/zh-cn/">Hexo</a>。上文提到的搭建博客教程内阐述了如何安装以及使用Hexo框架，在这里就不再赘述。它可以建立一个离线博客，即在本地运行hexo配置的文件（git bash内用hexo s命令），用<a href="http://localhost:4000即可登录（注意这只是本地网址，只有自己的电脑可以访问）。">http://localhost:4000即可登录（注意这只是本地网址，只有自己的电脑可以访问）。</a></p>
+<h4 id="基于hexo建立的博客文件概览"><a href="#基于hexo建立的博客文件概览" class="headerlink" title="基于hexo建立的博客文件概览"></a>基于hexo建立的博客文件概览</h4><p><img src="/2021/12/19/%E8%AE%B0%E5%BD%95%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E5%80%99%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/image-20211219154727502.png" alt="image-20211219154727502"></p>
 <ul>
 <li><p><strong>.github文件夹</strong>：自己用SSH绑定的GitHub的一个配置文件夹，可以将本文件夹（blog）与github库链接起来</p>
 </li>
@@ -551,51 +486,30 @@
 </li>
 </ul>
 <hr>
-
-        <h1 id="搭建博客出现的问题">
-          <a href="#搭建博客出现的问题" class="heading-link"><i class="fas fa-link"></i></a><a href="#搭建博客出现的问题" class="headerlink" title="搭建博客出现的问题"></a>搭建博客出现的问题</h1>
-      
-        <h2 id="1-网页加载不出CCS">
-          <a href="#1-网页加载不出CCS" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-网页加载不出CCS" class="headerlink" title="1. 网页加载不出CCS"></a>1. 网页加载不出CCS</h2>
-      <p>问题如下：将离线博客与github pages结合后，打开的是没有画面的博客。</p>
+<h1 id="搭建博客出现的问题"><a href="#搭建博客出现的问题" class="headerlink" title="搭建博客出现的问题"></a>搭建博客出现的问题</h1><h2 id="1-网页加载不出CCS"><a href="#1-网页加载不出CCS" class="headerlink" title="1. 网页加载不出CCS"></a>1. 网页加载不出CCS</h2><p>问题如下：将离线博客与github pages结合后，打开的是没有画面的博客。</p>
 <p><img src="/2021/12/19/%E8%AE%B0%E5%BD%95%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E5%80%99%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/QQ%E5%9B%BE%E7%89%8720211219155304.png" alt="QQ图片20211219155304"></p>
-<p>​        请教了于哥，他一句“CSS没上来”让我豁然开朗。于是我了解了CSS是什么，我个人理解为网页前端的一个界面可视化代码。我便搜了下“hexo博客CSS丢失”找到了一篇解决文档：<span class="exturl"><a class="exturl__link" href="https://blog.csdn.net/weixin_46187747/article/details/104575042">hexo部署博客没有样式等问题_青空的博客-CSDN博客_hexo没有样式</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>原来是config文件内url没有于自己博客的域名绑定，更改后如下：</p>
+<p>​        请教了于哥，他一句“CSS没上来”让我豁然开朗。于是我了解了CSS是什么，我个人理解为网页前端的一个界面可视化代码。我便搜了下“hexo博客CSS丢失”找到了一篇解决文档：<a href="https://blog.csdn.net/weixin_46187747/article/details/104575042">hexo部署博客没有样式等问题_青空的博客-CSDN博客_hexo没有样式</a>原来是config文件内url没有于自己博客的域名绑定，更改后如下：</p>
 <p><img src="/2021/12/19/%E8%AE%B0%E5%BD%95%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E5%80%99%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/image-20211219155705942.png" alt="image-20211219155705942"></p>
 <p>​        随后在gitbash内hexo g和hexo d更新一下就好啦</p>
-
-        <h2 id="2-GitHub-pages给的域名过长">
-          <a href="#2-GitHub-pages给的域名过长" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-GitHub-pages给的域名过长" class="headerlink" title="2. GitHub pages给的域名过长"></a>2. GitHub pages给的域名过长</h2>
-      <p>​        pages里给的域名是根据个人账号的名字和库的名字来命名的，我的GitHub账号叫polo-0831，新建用于存放博客代码的库叫做polos-blog，于是pages自动生成了<a href="https://polo-0831.github.io/polos-blog.github.io/%E7%9A%84%E5%9F%9F%E5%90%8D%E3%80%82%E6%B2%A1%E9%94%99%EF%BC%8C%E8%BF%99%E4%B8%AA%E5%9F%9F%E5%90%8D%E5%A4%AA%E9%95%BF%E5%A4%AA%E4%B8%91%E4%BA%86%EF%BC%8C%E8%80%8C%E4%B8%94%E5%9C%A8%E5%8D%9A%E5%AE%A2%E5%86%85%E8%B7%B3%E8%BD%AC%E5%9C%B0%E5%9D%80%E6%97%B6%E4%BC%9A%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E3%80%82%E5%8D%9A%E5%AE%A2%E5%86%85%E7%9A%84%E6%89%80%E6%9C%89%E6%8C%89%E9%92%AE%E6%89%80%E9%93%BE%E6%8E%A5%E7%9A%84%E7%BD%91%E5%9D%80%E9%83%BD%E6%98%AFGitHub%E4%B8%8A%E5%BA%93%E5%86%85%E7%9A%84%E6%96%87%E4%BB%B6%EF%BC%8C%E5%BD%93%E4%BD%A0%E6%8A%8A%E9%BC%A0%E6%A0%87%E6%94%BE%E5%9C%A8%E2%80%9C%E9%A6%96%E9%A1%B5%E2%80%9D%E8%BF%99%E4%B8%AA%E6%8C%89%E9%92%AE%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%B7%A6%E4%B8%8B%E8%A7%92%E4%BC%9A%E6%98%BE%E7%A4%BA%E9%93%BE%E6%8E%A5%E7%9A%84%E7%BD%91%E5%9D%80%E5%A6%82%E4%B8%8B%E5%9B%BE%EF%BC%9A">https://polo-0831.github.io/polos-blog.github.io/的域名。没错，这个域名太长太丑了，而且在博客内跳转地址时会出现问题。博客内的所有按钮所链接的网址都是GitHub上库内的文件，当你把鼠标放在“首页”这个按钮的时候，左下角会显示链接的网址如下图：</a></p>
+<h2 id="2-GitHub-pages给的域名过长"><a href="#2-GitHub-pages给的域名过长" class="headerlink" title="2. GitHub pages给的域名过长"></a>2. GitHub pages给的域名过长</h2><p>​        pages里给的域名是根据个人账号的名字和库的名字来命名的，我的GitHub账号叫polo-0831，新建用于存放博客代码的库叫做polos-blog，于是pages自动生成了<a href="https://polo-0831.github.io/polos-blog.github.io/%E7%9A%84%E5%9F%9F%E5%90%8D%E3%80%82%E6%B2%A1%E9%94%99%EF%BC%8C%E8%BF%99%E4%B8%AA%E5%9F%9F%E5%90%8D%E5%A4%AA%E9%95%BF%E5%A4%AA%E4%B8%91%E4%BA%86%EF%BC%8C%E8%80%8C%E4%B8%94%E5%9C%A8%E5%8D%9A%E5%AE%A2%E5%86%85%E8%B7%B3%E8%BD%AC%E5%9C%B0%E5%9D%80%E6%97%B6%E4%BC%9A%E5%87%BA%E7%8E%B0%E9%97%AE%E9%A2%98%E3%80%82%E5%8D%9A%E5%AE%A2%E5%86%85%E7%9A%84%E6%89%80%E6%9C%89%E6%8C%89%E9%92%AE%E6%89%80%E9%93%BE%E6%8E%A5%E7%9A%84%E7%BD%91%E5%9D%80%E9%83%BD%E6%98%AFGitHub%E4%B8%8A%E5%BA%93%E5%86%85%E7%9A%84%E6%96%87%E4%BB%B6%EF%BC%8C%E5%BD%93%E4%BD%A0%E6%8A%8A%E9%BC%A0%E6%A0%87%E6%94%BE%E5%9C%A8%E2%80%9C%E9%A6%96%E9%A1%B5%E2%80%9D%E8%BF%99%E4%B8%AA%E6%8C%89%E9%92%AE%E7%9A%84%E6%97%B6%E5%80%99%EF%BC%8C%E5%B7%A6%E4%B8%8B%E8%A7%92%E4%BC%9A%E6%98%BE%E7%A4%BA%E9%93%BE%E6%8E%A5%E7%9A%84%E7%BD%91%E5%9D%80%E5%A6%82%E4%B8%8B%E5%9B%BE%EF%BC%9A">https://polo-0831.github.io/polos-blog.github.io/的域名。没错，这个域名太长太丑了，而且在博客内跳转地址时会出现问题。博客内的所有按钮所链接的网址都是GitHub上库内的文件，当你把鼠标放在“首页”这个按钮的时候，左下角会显示链接的网址如下图：</a></p>
 <p><img src="/2021/12/19/%E8%AE%B0%E5%BD%95%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E5%80%99%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/image-20211219160220211.png" alt="image-20211219160220211"></p>
 <p>可以看出，如果域名时那个又长又臭的域名的话，跳转的地址并不是库内的地址，会出现404报错。</p>
 <p>解决方法：将库名字修改成与自己github账号名字相同，pages自动生成的网址便会自动缩短：<a href="https://polo-0831.github.io/">PoLo Welcome! (polo-0831.github.io)</a></p>
 <p><strong>问题解决！</strong></p>
 <hr>
-
-        <h1 id="更新博客步骤">
-          <a href="#更新博客步骤" class="heading-link"><i class="fas fa-link"></i></a><a href="#更新博客步骤" class="headerlink" title="更新博客步骤"></a>更新博客步骤</h1>
-      <ol>
+<h1 id="更新博客步骤"><a href="#更新博客步骤" class="headerlink" title="更新博客步骤"></a>更新博客步骤</h1><ol>
 <li><p>在博客目录下git bash，输入<code>hexo new [模板] (标题)</code>创建新文档和对应的文件夹（放图片），模板为hexo内置的三个文档模板，即md文件开头的信息框，在blog/scaffolds里可以查看，默认是post。</p>
 </li>
 <li><p>在博客文件夹父路径下打开git bash，输入<code>hexo g</code>和<code>hexo d</code>更新上即可（PS：hexo g是hexo generate的意思，hexo d是hexo deploy的意思，我理解为即用hexo里的deploy工具将文件上传上去。教程内在配置config文件的时候也修改了deploy的定义，修改为git）</p>
 <hr>
 </li>
 </ol>
-
-        <h1 id="结语">
-          <a href="#结语" class="heading-link"><i class="fas fa-link"></i></a><a href="#结语" class="headerlink" title="结语"></a>结语</h1>
-      <p>​        这是我在复习周匆忙写的文档，时间紧没有用心写。希望未来的文档能够越写越漂亮！</p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>​        这是我在复习周匆忙写的文档，时间紧没有用心写。希望未来的文档能够越写越漂亮！</p>
 <hr>
-
-        <h1 id="关于修改主题配置文件—-2022-6-25更新">
-          <a href="#关于修改主题配置文件—-2022-6-25更新" class="heading-link"><i class="fas fa-link"></i></a><a href="#关于修改主题配置文件—-2022-6-25更新" class="headerlink" title="关于修改主题配置文件—-2022/6/25更新"></a>关于修改主题配置文件—-2022/6/25更新</h1>
-      <p>资料补充：<span class="exturl"><a class="exturl__link" href="https://github.com/liuyib/hexo-theme-stun">主题github库：liuyib/hexo-theme-stun: 🦄 An elegant theme for Hexo (github.com)</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
+<h1 id="关于修改主题配置文件—-2022-6-25更新"><a href="#关于修改主题配置文件—-2022-6-25更新" class="headerlink" title="关于修改主题配置文件—-2022/6/25更新"></a>关于修改主题配置文件—-2022/6/25更新</h1><p>资料补充：<a href="https://github.com/liuyib/hexo-theme-stun">主题github库：liuyib/hexo-theme-stun: 🦄 An elegant theme for Hexo (github.com)</a></p>
 <p>​        <strong>修改主题配置文件应在D:\Blog\source\ __data\stun.yml配置文件内修改</strong>，而不是stun主题内的与hexo配置文件重名的_config.yml，否则会出现部署之后博客没变化的情况。</p>
-<p>关于原因可以查看我在作者github上的Issue：<span class="exturl"><a class="exturl__link" href="https://github.com/liuyib/hexo-theme-stun/issues/271">主页顶部背景图片无法显示 · Issue #271 · liuyib/hexo-theme-stun (github.com)</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span></p>
-
-        <h1 id="添加了站长管理工具—-2022-6-25更新">
-          <a href="#添加了站长管理工具—-2022-6-25更新" class="heading-link"><i class="fas fa-link"></i></a><a href="#添加了站长管理工具—-2022-6-25更新" class="headerlink" title="添加了站长管理工具—-2022/6/25更新"></a>添加了站长管理工具—-2022/6/25更新</h1>
-      <p>什么是站长管理工具？从功能上理解，就是把你的个人域名报备到搜素引擎里，让搜索引擎统计你的域名网站的数据，例如搜索次数、网站覆盖率等，并允许搜索引擎的爬虫程序爬到你。</p>
+<p>关于原因可以查看我在作者github上的Issue：<a href="https://github.com/liuyib/hexo-theme-stun/issues/271">主页顶部背景图片无法显示 · Issue #271 · liuyib/hexo-theme-stun (github.com)</a></p>
+<h1 id="添加了站长管理工具—-2022-6-25更新"><a href="#添加了站长管理工具—-2022-6-25更新" class="headerlink" title="添加了站长管理工具—-2022/6/25更新"></a>添加了站长管理工具—-2022/6/25更新</h1><p>什么是站长管理工具？从功能上理解，就是把你的个人域名报备到搜素引擎里，让搜索引擎统计你的域名网站的数据，例如搜索次数、网站覆盖率等，并允许搜索引擎的爬虫程序爬到你。</p>
 <p>谷歌站长管理工具：</p>
 <p><img src="/2021/12/19/%E8%AE%B0%E5%BD%95%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E5%80%99%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/image-20220625210024054.png" alt="image-20220625210024054"></p>
 <p>必应站长管理工具：<img src="/2021/12/19/%E8%AE%B0%E5%BD%95%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2%E6%97%B6%E5%80%99%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B/image-20220625204426189.png" alt="image-20220625204426189"></p>
@@ -610,9 +524,11 @@
       </tags>
   </entry>
   <entry>
-    <title>歌曲评价</title>
+    <title>歌曲锐评</title>
     <url>/2022/06/27/%E6%AD%8C%E6%9B%B2%E8%AF%84%E4%BB%B7/</url>
-    <content><![CDATA[<h1 id="Capper–520赫兹-收录于2022-6-27"><a href="#Capper–520赫兹-收录于2022-6-27" class="headerlink" title="Capper–520赫兹    收录于2022/6/27"></a>Capper–520赫兹    收录于2022/6/27</h1><p><img src="/2022/06/27/%E6%AD%8C%E6%9B%B2%E8%AF%84%E4%BB%B7/image-20220627231843452.png" alt="image-20220627231843452"></p>
+    <content><![CDATA[<span id="more"></span>
+
+<h1 id="Capper–520赫兹-收录于2022-6-27"><a href="#Capper–520赫兹-收录于2022-6-27" class="headerlink" title="Capper–520赫兹    收录于2022/6/27"></a>Capper–520赫兹    收录于2022/6/27</h1><p><img src="/2022/06/27/%E6%AD%8C%E6%9B%B2%E8%AF%84%E4%BB%B7/image-20220627231843452.png" alt="image-20220627231843452"></p>
 <h2 id="歌曲评价"><a href="#歌曲评价" class="headerlink" title="歌曲评价"></a>歌曲评价</h2><p>自从中国有嘻哈里capper走进大众视线，我就知道他能扛起00后的大旗。他做的风格是mumble rap，并不是他不能吐字清晰，而是他能非常完美的驾驭mumble。他的录音室作品，体现了他国内顶级的mumble腔调，用力的慵懒感，听感拉满；他的现场，他会街舞，身体的律动加上惹人喜爱的flow和腔调，是21世纪国内难以享受的现场氛围。</p>
 <p>这首歌是他最出圈的一首情歌，歌词写的恰到好处，把爱情里的喜怒哀乐都能囊括，配合上优秀的编曲、作曲和混音，当然还有capper本人的腔调技巧，把时间尽头拉在听众的面前。</p>
 <h2 id="歌词"><a href="#歌词" class="headerlink" title="歌词"></a>歌词</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">喜欢和她见面</span><br><span class="line">可距离给的感觉</span><br><span class="line">是忽明又忽灭</span><br><span class="line">她谜底总是留着悬念</span><br><span class="line">我甚至感到厌倦</span><br><span class="line">被掐灭的香烟</span><br><span class="line"></span><br><span class="line">雾锁云埋</span><br><span class="line">总是在答案边徘徊</span><br><span class="line">不想醒来</span><br><span class="line">像一杯美式没冰块</span><br><span class="line"></span><br><span class="line">好奇她的房间</span><br><span class="line">坐在她的窗边</span><br><span class="line">等她眼睛睁开</span><br><span class="line">下雨还是晴天</span><br><span class="line">依偎在我身边</span><br><span class="line">调昏暗的光线</span><br><span class="line"></span><br><span class="line">别再怀念 </span><br><span class="line">有些人不值得 没必要留恋</span><br><span class="line">别再冬眠 </span><br><span class="line">去热烈的夏天</span><br><span class="line"></span><br><span class="line">Shawty like melody in my head</span><br><span class="line">Replay iffy in my head</span><br><span class="line">我想留住的画面</span><br><span class="line">把心动拍成胶片</span><br><span class="line">Shawty like melody in my head</span><br><span class="line">Replay iffy in my head</span><br><span class="line">是最熟悉的音乐</span><br><span class="line">我却不熟练表演</span><br><span class="line"></span><br><span class="line">Ouu-ouuu-ouu-ou</span><br><span class="line">猜不透你的活动心理</span><br><span class="line">软禁在你发的短信</span><br><span class="line">like youu-ouu-ouu</span><br><span class="line">读不懂你的所有神情</span><br><span class="line">会牵动我神经</span><br><span class="line"></span><br><span class="line">沉浸在落日晚风中的意外</span><br><span class="line">树莓般的晚霞对你透着溺爱</span><br><span class="line">在提醒我小心</span><br><span class="line">因为一不小心我就会爱上你</span><br><span class="line">Maybe we should link</span><br><span class="line">我录下你的声音放进采样集</span><br><span class="line">伴随着我的心跳 在扑通扑通扑到海浪里</span><br><span class="line"></span><br><span class="line">这动人的情节 就像收到幸运的请帖</span><br><span class="line">浓度很高 倒杯不流的DQ暴风雪</span><br><span class="line">其他我看不见 一起走到终点</span><br><span class="line">数一年又一年 用音乐装时间</span><br><span class="line"></span><br><span class="line">像关了禁闭</span><br><span class="line">心动的感觉总在掩饰下藏匿</span><br><span class="line">像是深海里的宝箱里面装满金币</span><br><span class="line">骇浪也因此骤停 可你却不求名利</span><br><span class="line">短暂的心悸</span><br><span class="line">我还没看到你笑我怎么放弃</span><br><span class="line">你要相信这段感情一定百无禁忌</span><br><span class="line">下次见到你 我想要</span><br><span class="line"></span><br><span class="line">hold you body like this x2</span><br><span class="line">这部言情电影</span><br><span class="line">还没公映</span><br><span class="line">I wanna</span><br><span class="line">hold you body like this x2</span><br><span class="line">这部言情电影</span><br><span class="line">还没公映</span><br><span class="line"></span><br><span class="line">Shawty like melody in my head</span><br><span class="line">Replay iffy in my head</span><br><span class="line">我想留住的画面</span><br><span class="line">把心动拍成胶片</span><br><span class="line">Shawty like melody in my head</span><br><span class="line">Replay iffy in my head</span><br><span class="line">是最熟悉的音乐</span><br><span class="line">我却不熟练表演</span><br></pre></td></tr></table></figure>
@@ -633,10 +549,7 @@
   <entry>
     <title>论文笔记：Deep Learning for Person Re-identification:A Survey and Outlook（行人重识别综述）</title>
     <url>/2022/06/04/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[
-        <h1 id="前言">
-          <a href="#前言" class="heading-link"><i class="fas fa-link"></i></a><a href="#前言" class="headerlink" title="前言"></a>前言</h1>
-      <p>​    武汉大学叶茫教授在2022年发布的一篇关于行人重识别Reid综述和展望的论文<strong>《Deep Learning for Person Re-Identification: A Survey and Outlook.》 –Mang Ye，行人重识别综述</strong>。</p>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>​    武汉大学叶茫教授在2022年发布的一篇关于行人重识别Reid综述和展望的论文<strong>《Deep Learning for Person Re-Identification: A Survey and Outlook.》 –Mang Ye，行人重识别综述</strong>。</p>
 <p>​    本篇论文主要讲述了：</p>
 <ul>
 <li><p>行人重识别领域发展以来的各种实现方法，并举出了它们的优缺点</p>
@@ -649,95 +562,49 @@
 </li>
 </ul>
 <p>这篇论文有利于行人重识别的初学者大致了解该领域先前的工作，这篇文章更加侧重Open-world类型的多模态行人重识别工作，也是目前困难比较多的行人重识别方向。</p>
+<span id="more"></span>
 
-        <h2 id="计算机视觉论文中的Baseline">
-          <a href="#计算机视觉论文中的Baseline" class="heading-link"><i class="fas fa-link"></i></a><a href="#计算机视觉论文中的Baseline" class="headerlink" title="计算机视觉论文中的Baseline"></a>计算机视觉论文中的Baseline</h2>
-      <p>​    在计算机视觉领域中的算法创新，都要有一个标准来进行比较才能知道新算法是否创新。</p>
+<h2 id="计算机视觉论文中的Baseline"><a href="#计算机视觉论文中的Baseline" class="headerlink" title="计算机视觉论文中的Baseline"></a>计算机视觉论文中的Baseline</h2><p>​    在计算机视觉领域中的算法创新，都要有一个标准来进行比较才能知道新算法是否创新。</p>
 <ul>
 <li><p><strong>Benchmark</strong>：一个算法被称为Benchmark，是因为它的是因为它的性能已经被广泛研究，人们对它性能的表现形式、测量方法都非常熟悉，因此可以作为标准方法来衡量其他方法的好坏。简单来说创新的指标标准要好过benchmark的标准，一般新算法用SOTA（state-of-the-art）的算法作为benchmark是最好的。</p>
 </li>
 <li><p><strong>Baseline</strong>：一个算法被称为baseline，基本上表示比这个算法性能还差的基本上不能接受的，除非方法上有革命性的创新点，而且还有巨大的改进空间和超越benchmark的潜力，只是因为是发展初期而性能有限。所以baseline有一个自带的含义就是“性能起点”。这里还需要指出其另一个应用语境，就是在算法优化过程中，一般version1.0是作为baseline的，即这是你的算法能达到的一个基本性能，在算法继续优化和调参数的过程中，你的目标是比这个性能更好，因此需要在这个baseline的基础上往上跳。</p>
 </li>
 <li><p>简而言之，benchmark一般是和同行中比较牛的算法比较，比牛算法还好，那你可以考虑发好一点的会议/期刊；baseline一般是自己算法优化和调参过程中自己和自己比较，目标是越来越好，当性能超过benchmark时，可以发表了，当性能甚至超过SOTA时，恭喜你，考虑投顶会顶刊啦。</p>
-<p>  参考链接：<span class="exturl"><a class="exturl__link" href="https://blog.csdn.net/qq_41088475/article/details/105756552">https://blog.csdn.net/qq_41088475/article/details/105756552</a><span class="exturl__icon"><i class="fas fa-external-link-alt"></i></span></span>  </p>
+<p>  参考链接：<a href="https://blog.csdn.net/qq_41088475/article/details/105756552">https://blog.csdn.net/qq_41088475/article/details/105756552</a>  </p>
 </li>
 </ul>
-
-        <h1 id="0-摘要">
-          <a href="#0-摘要" class="heading-link"><i class="fas fa-link"></i></a><a href="#0-摘要" class="headerlink" title="0.摘要"></a>0.摘要</h1>
-      <p>1）通过行人重识别领域的研究，将该领域分为封闭世界（closed-world）和开放世界（open-world）两大类研究。<br>2）封闭世界：<strong>深度特征表示学习</strong>，<strong>深度度量学习</strong>和<strong>排名优化</strong>。封闭世界的研究成果逐渐达到饱和，研究重心自然落在开放世界上，可用五个方面总结其研究。<br>3）提出名为<strong>AGW</strong>的baseline，引入针对ReID的新评价指标<strong>mINP</strong>。</p>
-
-        <h1 id="1-Introduction">
-          <a href="#1-Introduction" class="heading-link"><i class="fas fa-link"></i></a><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h1>
-      <p>原文：Re-ID is a challenging task due to the presence of <strong>different viewpoints</strong>, <strong>varying low-image resolutions</strong> , <strong>illumination changes</strong>, <strong>unconstrained poses</strong> , <strong>occlusions</strong>, <strong>heterogeneous modalities</strong> , <strong>complex camera environments</strong>, <strong>background clutter</strong> , <strong>unreliable bounding box generations</strong>, etc. These result in varying variations and uncertainty. </p>
+<h1 id="0-摘要"><a href="#0-摘要" class="headerlink" title="0.摘要"></a>0.摘要</h1><p>1）通过行人重识别领域的研究，将该领域分为封闭世界（closed-world）和开放世界（open-world）两大类研究。<br>2）封闭世界：<strong>深度特征表示学习</strong>，<strong>深度度量学习</strong>和<strong>排名优化</strong>。封闭世界的研究成果逐渐达到饱和，研究重心自然落在开放世界上，可用五个方面总结其研究。<br>3）提出名为<strong>AGW</strong>的baseline，引入针对ReID的新评价指标<strong>mINP</strong>。</p>
+<h1 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1.Introduction"></a>1.Introduction</h1><p>原文：Re-ID is a challenging task due to the presence of <strong>different viewpoints</strong>, <strong>varying low-image resolutions</strong> , <strong>illumination changes</strong>, <strong>unconstrained poses</strong> , <strong>occlusions</strong>, <strong>heterogeneous modalities</strong> , <strong>complex camera environments</strong>, <strong>background clutter</strong> , <strong>unreliable bounding box generations</strong>, etc. These result in varying variations and uncertainty. </p>
 <p>目前reid（主要是开放世界）的研究困难主要在<strong>不同视角、参差不齐的低分辨率图像、光照变化、姿态不同、遮挡情况、异构模态数据</strong></p>
-
-        <h2 id="针对特定场景构成reid系统需要五个步骤">
-          <a href="#针对特定场景构成reid系统需要五个步骤" class="heading-link"><i class="fas fa-link"></i></a><a href="#针对特定场景构成reid系统需要五个步骤" class="headerlink" title="针对特定场景构成reid系统需要五个步骤"></a>针对特定场景构成reid系统需要五个步骤</h2>
-      <p><img src="/2022/06/04/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/image-20220604175417280.png" alt="image-20220604175417280"></p>
+<h2 id="针对特定场景构成reid系统需要五个步骤"><a href="#针对特定场景构成reid系统需要五个步骤" class="headerlink" title="针对特定场景构成reid系统需要五个步骤"></a>针对特定场景构成reid系统需要五个步骤</h2><p><img src="/2022/06/04/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/image-20220604175417280.png" alt="image-20220604175417280"></p>
 <p>1）<strong>原始数据收集</strong>：从处于不同环境的不同地方的摄像机获取原始视频数据。这些数据包含大量的背景杂波。<br>2）<strong>边界框（Bounding Box）生成</strong>：通过行人检测或跟踪算法从原始视频数据中提取包含行人图像的边界框。在大规模应用中不可能手动裁剪所有行人图像。<br>3）<strong>训练数据标注</strong>：对于区分行人任务来说，图像标注必不可少。<br>4）<strong>模型构建和训练</strong>：已经开发了广泛运用的模型，重点在于特征表示学习、度量学习或两者结合。<br>5）<strong>实践测试阶段</strong>：给定一个query和一组gallery，使用上一阶段训练完毕的模型进行行人特征提取，计算query图像和gallery图像的相似度进行排序。</p>
-
-        <h2 id="封闭世界和开放世界的五大差别有">
-          <a href="#封闭世界和开放世界的五大差别有" class="heading-link"><i class="fas fa-link"></i></a><a href="#封闭世界和开放世界的五大差别有" class="headerlink" title="封闭世界和开放世界的五大差别有"></a>封闭世界和开放世界的五大差别有</h2>
-      <p>1、<strong>单模态和异构数据</strong>（Single-modality Data vs. Heterogeneous Data）：对于步骤1中的原始数据收集，默认所有行人都是在可见光单模态下进行拍摄的，但是在实际的开放世界中，数据可能是异构的，例如，行人可能是在不同光谱、草图、深度图像相机所捕获，甚至可能是文本描述。（这也是本博客关注的重点，即跨模态行人重识别）</p>
+<h2 id="封闭世界和开放世界的五大差别有"><a href="#封闭世界和开放世界的五大差别有" class="headerlink" title="封闭世界和开放世界的五大差别有"></a>封闭世界和开放世界的五大差别有</h2><p>1、<strong>单模态和异构数据</strong>（Single-modality Data vs. Heterogeneous Data）：对于步骤1中的原始数据收集，默认所有行人都是在可见光单模态下进行拍摄的，但是在实际的开放世界中，数据可能是异构的，例如，行人可能是在不同光谱、草图、深度图像相机所捕获，甚至可能是文本描述。（这也是本博客关注的重点，即跨模态行人重识别）</p>
 <p>2、<strong>边界框生成和原始图像/视频</strong>（Bounding Box Generation vs. Raw Images/Videos）：封闭世界中的行人重识别通常基于边界框提取的行人图像或视频进行训练和测试。但是在实际开放世界中需要直接从原始图像/视频中进行端到端的行人检索。</p>
 <p>3、<strong>丰富的标签数据和不可用/有限的标签</strong>（Sufficient Annotated Data vs. Unavailable/Limited Labels）：封闭世界中，行人图像都是标注好的。但在实际应用中，标注费时费力成本高。故引发了有监督和无监督领域。</p>
 <p>4、<strong>正确标签和噪声标签</strong>（Correct Annotation vs. Noisy Annotation）：现有的封闭世界的行人重识别领域通常假定所有标签清晰且正确。然而实际应用中，标签噪声和不完善正确的检索跟踪结果导致的样本噪声也都不可避免，故引出了不同噪声类型下的鲁棒行人ReID。</p>
 <p>5、<strong>query是否存在于gallery中</strong>（Query Exists in Gallery vs. Open-set）：现有的封闭世界行人ReID都假设查询必须存在于图库中，并计算CMC和mAP。但是在现实情况中，查询行人不一定出现在图库中</p>
-
-        <h2 id="批注：Query和Gallery">
-          <a href="#批注：Query和Gallery" class="heading-link"><i class="fas fa-link"></i></a><a href="#批注：Query和Gallery" class="headerlink" title="批注：Query和Gallery"></a>批注：Query和Gallery</h2>
-      <p>行人重识别的数据集与普通的视觉检测数据集不同，包括<strong>训练集、验证集、Query和Gallery</strong>，其中训练集和验证集是模型训练时候使用的，query是模型的输入数据，一张行人boundingbox叫prob，多个prob称为query。Gallery则是模型内存储的行人数据，prob就是要在gallery内寻找匹配的行人并且给出rank。</p>
+<h2 id="批注：Query和Gallery"><a href="#批注：Query和Gallery" class="headerlink" title="批注：Query和Gallery"></a>批注：Query和Gallery</h2><p>行人重识别的数据集与普通的视觉检测数据集不同，包括<strong>训练集、验证集、Query和Gallery</strong>，其中训练集和验证集是模型训练时候使用的，query是模型的输入数据，一张行人boundingbox叫prob，多个prob称为query。Gallery则是模型内存储的行人数据，prob就是要在gallery内寻找匹配的行人并且给出rank。</p>
 <p><img src="/2022/06/04/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/image-20220604175952635.png" alt="image-20220604175952635"></p>
-
-        <h1 id="2-Closed-world-Re-ID（封闭世界）">
-          <a href="#2-Closed-world-Re-ID（封闭世界）" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-Closed-world-Re-ID（封闭世界）" class="headerlink" title="2.Closed-world Re-ID（封闭世界）"></a>2.Closed-world Re-ID（封闭世界）</h1>
-      <p>此设置通常具有以下假设：<strong>（即与开放世界的五大差别）</strong></p>
+<h1 id="2-Closed-world-Re-ID（封闭世界）"><a href="#2-Closed-world-Re-ID（封闭世界）" class="headerlink" title="2.Closed-world Re-ID（封闭世界）"></a>2.Closed-world Re-ID（封闭世界）</h1><p>此设置通常具有以下假设：<strong>（即与开放世界的五大差别）</strong></p>
 <p>​    1）通过单模态可见光摄像机捕获行人。</p>
 <p>​    2）已经给出行人bounding box。</p>
 <p>​    3）有足够的标注好的训练数据。用于监督训练。</p>
 <p>​    4）标签通常是正确的。</p>
 <p>​    5）query行人必须出现在图库中。</p>
 <p>通常来说CW的ReID包括三个主要组件：</p>
-
-        <h2 id="2-1-Feature-Representation-Learning（特征表示学习）">
-          <a href="#2-1-Feature-Representation-Learning（特征表示学习）" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-1-Feature-Representation-Learning（特征表示学习）" class="headerlink" title="2.1 Feature Representation Learning（特征表示学习）"></a>2.1 Feature Representation Learning（特征表示学习）</h2>
-      <p><img src="/2022/06/04/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/image-20220604180451609.png" alt="image-20220604180451609"></p>
-
-        <h3 id="2-1-1-Global-Feature-Representation-Learning（全局特征）">
-          <a href="#2-1-1-Global-Feature-Representation-Learning（全局特征）" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-1-1-Global-Feature-Representation-Learning（全局特征）" class="headerlink" title="2.1.1 Global Feature Representation Learning（全局特征）"></a>2.1.1 Global Feature Representation Learning（全局特征）</h3>
-      <p>将同一个行人的所有图像视为同一类（同一个ID），提取全局特征，将ReID任务视为一个多分类问题。<br>注意力机制也被广泛应用以增强特征表示学习。1）行人图像中attention 2）跨多行人注意力</p>
-
-        <h3 id="2-1-2-Local-Feature-Representation-Learning（局部特征）">
-          <a href="#2-1-2-Local-Feature-Representation-Learning（局部特征）" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-1-2-Local-Feature-Representation-Learning（局部特征）" class="headerlink" title="2.1.2 Local Feature Representation Learning（局部特征）"></a>2.1.2 Local Feature Representation Learning（局部特征）</h3>
-      <p>具体方案不在此赘述，基本思路即在全局特征之外附加局部特征信息，必定能通过更多信息获得更好的结果。但有些分块技术需要额外的人体姿态对齐策略辅助，而固定分块技术（例如PCB）通过水平划分来进行分块，对重度遮挡和背景杂波敏感。</p>
-
-        <h3 id="2-1-3-Auxiliary-Feature-Representation-Learning（辅助特征）">
-          <a href="#2-1-3-Auxiliary-Feature-Representation-Learning（辅助特征）" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-1-3-Auxiliary-Feature-Representation-Learning（辅助特征）" class="headerlink" title="2.1.3 Auxiliary Feature Representation Learning（辅助特征）"></a>2.1.3 Auxiliary Feature Representation Learning（辅助特征）</h3>
-      <p>通常需要附加额外的注释信息，可以是文字注释（<strong>semantic attributes</strong>），或利用GAN生成额外的训练样本进行原有数据的扩充（<strong>GAN Generation</strong>）；除此之外还有<strong>Domain Information</strong>（DGD算法-Domain Guided Dropout）和<strong>Viewpoint Information</strong>（MLFN-Multi Level Factorisation Net）。</p>
-
-        <h3 id="2-1-4-Video-Feature-Representation-Learning-视频特征">
-          <a href="#2-1-4-Video-Feature-Representation-Learning-视频特征" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-1-4-Video-Feature-Representation-Learning-视频特征" class="headerlink" title="2.1.4 Video Feature Representation Learning(视频特征)"></a>2.1.4 Video Feature Representation Learning(视频特征)</h3>
-      
-        <h2 id="2-2-Deep-Metric-Learning（深度度量学习）">
-          <a href="#2-2-Deep-Metric-Learning（深度度量学习）" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-2-Deep-Metric-Learning（深度度量学习）" class="headerlink" title="2.2 Deep Metric Learning（深度度量学习）"></a>2.2 Deep Metric Learning（深度度量学习）</h2>
-      
-        <h3 id="2-2-1-Loss-Function-Design损失函数的设计">
-          <a href="#2-2-1-Loss-Function-Design损失函数的设计" class="heading-link"><i class="fas fa-link"></i></a><a href="#2-2-1-Loss-Function-Design损失函数的设计" class="headerlink" title="2.2.1 Loss Function Design损失函数的设计"></a>2.2.1 Loss Function Design损失函数的设计</h3>
-      <p><img src="/2022/06/04/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/image-20220604181220879.png" alt="image-20220604181220879"></p>
+<h2 id="2-1-Feature-Representation-Learning（特征表示学习）"><a href="#2-1-Feature-Representation-Learning（特征表示学习）" class="headerlink" title="2.1 Feature Representation Learning（特征表示学习）"></a>2.1 Feature Representation Learning（特征表示学习）</h2><p><img src="/2022/06/04/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/image-20220604180451609.png" alt="image-20220604180451609"></p>
+<h3 id="2-1-1-Global-Feature-Representation-Learning（全局特征）"><a href="#2-1-1-Global-Feature-Representation-Learning（全局特征）" class="headerlink" title="2.1.1 Global Feature Representation Learning（全局特征）"></a>2.1.1 Global Feature Representation Learning（全局特征）</h3><p>将同一个行人的所有图像视为同一类（同一个ID），提取全局特征，将ReID任务视为一个多分类问题。<br>注意力机制也被广泛应用以增强特征表示学习。1）行人图像中attention 2）跨多行人注意力</p>
+<h3 id="2-1-2-Local-Feature-Representation-Learning（局部特征）"><a href="#2-1-2-Local-Feature-Representation-Learning（局部特征）" class="headerlink" title="2.1.2 Local Feature Representation Learning（局部特征）"></a>2.1.2 Local Feature Representation Learning（局部特征）</h3><p>具体方案不在此赘述，基本思路即在全局特征之外附加局部特征信息，必定能通过更多信息获得更好的结果。但有些分块技术需要额外的人体姿态对齐策略辅助，而固定分块技术（例如PCB）通过水平划分来进行分块，对重度遮挡和背景杂波敏感。</p>
+<h3 id="2-1-3-Auxiliary-Feature-Representation-Learning（辅助特征）"><a href="#2-1-3-Auxiliary-Feature-Representation-Learning（辅助特征）" class="headerlink" title="2.1.3 Auxiliary Feature Representation Learning（辅助特征）"></a>2.1.3 Auxiliary Feature Representation Learning（辅助特征）</h3><p>通常需要附加额外的注释信息，可以是文字注释（<strong>semantic attributes</strong>），或利用GAN生成额外的训练样本进行原有数据的扩充（<strong>GAN Generation</strong>）；除此之外还有<strong>Domain Information</strong>（DGD算法-Domain Guided Dropout）和<strong>Viewpoint Information</strong>（MLFN-Multi Level Factorisation Net）。</p>
+<h3 id="2-1-4-Video-Feature-Representation-Learning-视频特征"><a href="#2-1-4-Video-Feature-Representation-Learning-视频特征" class="headerlink" title="2.1.4 Video Feature Representation Learning(视频特征)"></a>2.1.4 Video Feature Representation Learning(视频特征)</h3><h2 id="2-2-Deep-Metric-Learning（深度度量学习）"><a href="#2-2-Deep-Metric-Learning（深度度量学习）" class="headerlink" title="2.2 Deep Metric Learning（深度度量学习）"></a>2.2 Deep Metric Learning（深度度量学习）</h2><h3 id="2-2-1-Loss-Function-Design损失函数的设计"><a href="#2-2-1-Loss-Function-Design损失函数的设计" class="headerlink" title="2.2.1 Loss Function Design损失函数的设计"></a>2.2.1 Loss Function Design损失函数的设计</h3><p><img src="/2022/06/04/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0/image-20220604181220879.png" alt="image-20220604181220879"></p>
 <p>如图分为三种：<strong>交叉熵损失函数（简单的多分类）、验证损失（对比损失）、三元组损失</strong></p>
-
-        <h2 id="3-Open-World-Person-ReID（开放世界）">
-          <a href="#3-Open-World-Person-ReID（开放世界）" class="heading-link"><i class="fas fa-link"></i></a><a href="#3-Open-World-Person-ReID（开放世界）" class="headerlink" title="3.Open-World Person ReID（开放世界）"></a>3.Open-World Person ReID（开放世界）</h2>
-      <p>3.1 Heterogeneous Re-ID (多模态行人重识别)</p>
+<h2 id="3-Open-World-Person-ReID（开放世界）"><a href="#3-Open-World-Person-ReID（开放世界）" class="headerlink" title="3.Open-World Person ReID（开放世界）"></a>3.Open-World Person ReID（开放世界）</h2><p>3.1 Heterogeneous Re-ID (多模态行人重识别)</p>
 <p>3.2 End-to-End Re-ID </p>
 <p>3.3 Semi-supervised and Unsupervise Re-ID</p>
 <p>3.4 Noise-Robust Re-ID</p>
 <p>3.5 Open-set Re-ID and Beyond</p>
-
-        <h2 id="4-AN-OUTLOOK-RE-ID-IN-NEXT-ERA">
-          <a href="#4-AN-OUTLOOK-RE-ID-IN-NEXT-ERA" class="heading-link"><i class="fas fa-link"></i></a><a href="#4-AN-OUTLOOK-RE-ID-IN-NEXT-ERA" class="headerlink" title="4.AN OUTLOOK: RE-ID IN NEXT ERA"></a>4.AN OUTLOOK: RE-ID IN NEXT ERA</h2>
-      <ul>
+<h2 id="4-AN-OUTLOOK-RE-ID-IN-NEXT-ERA"><a href="#4-AN-OUTLOOK-RE-ID-IN-NEXT-ERA" class="headerlink" title="4.AN OUTLOOK: RE-ID IN NEXT ERA"></a>4.AN OUTLOOK: RE-ID IN NEXT ERA</h2><ul>
 <li><strong>新的评价指标mINP</strong></li>
 <li><strong>AGW baseline</strong></li>
 </ul>
